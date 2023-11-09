@@ -1,0 +1,224 @@
+<app-menu></app-menu>
+
+<ion-content fullscreen >
+  <div class="div-cont" >
+    <div style="display: flex;padding-top: 23px;background:#F7F7F7 ;margin-bottom: 19px;">
+      <div style="margin-left: 25px;" >
+        <ion-menu-button style="margin: 0px; color: #393235;"   ></ion-menu-button>
+      </div>
+       
+      <div class="containerHeader">
+      
+        <img width="97px" height="27px" src="../../../assets/icon/logos/LogoHeader.png"/></div>
+        <div style=" display: flex; align-items: center; text-align: center; align-content: center;margin-right: 27px; width: 32px;">
+          <img  style="width: 32px;height: 32px;max-width: 32px;" src="../../../assets/icon/logos/Notificationes.png" alt="">
+  
+        </div>
+        
+      </div>
+    <div class="div-back">
+     
+      <div style="width: 100%; margin-top: 10px; ">
+        <div style="width: 100%; margin-left: 27px;margin-bottom: 10px;">
+          <ion-label style="font-family: 'SF Pro';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          color: #393235;">Buenos días, {{name}}</ion-label>
+        
+        </div>
+          
+        <div style="width: 100%;display: flex;" >
+          <div style="width: 100% ;max-width: 271px;margin-left: 27px;">
+            <ion-searchbar (click)="services()" style="padding-left: 0px;padding-right: 0px;height: 40px;" showCancelButton="focus" class="custom" placeholder="Peluquerias cerca de mi"></ion-searchbar>
+          </div>
+          <div style=" display: flex; align-items: center;margin-left: 18px;">
+            <button (click)="aport()" class="button">
+              <img style="width: 31.62px;
+              height: 31.62px;" src="../../../assets/icon/logos/QRCode.png" alt="">
+            </button>
+          </div>
+         
+        </div>
+        </div>
+      <div style="display: flex; width: 100%;max-width: 350px;
+      max-height: 88px;margin-bottom: 22px;margin-left: 30px;margin-top: 17px;">
+        <div class="lista-imagenes">
+          <div class="square-button">
+            <img style="width: 43px; height: 43px;" src="../../../assets/icon/logos/Peluquería.png" alt="">
+            <p style="margin-top: 10px;">Peluquerias</p>
+          </div>
+          <div  class="square-button">
+            <img style="width: 57px;height: 57px;" src="../../../assets/icon/logos/Petshop.png" alt="">
+            <p >Petshops</p>
+            
+          </div>    
+          
+          <div (click)="services()" class="square-button">
+            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px; width: 91px;" >Veterinarias</p>
+          </div>
+          <div (click)="services()" class="square-button">
+            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px;" >Veterinarias</p>
+          </div>
+          <div (click)="services()" class="square-button">
+            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px;" >Veterinarias</p>
+          </div>
+          <div (click)="services()" class="square-button">
+            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px;" >Veterinarias</p>
+          </div>
+          <div (click)="services()" class="square-button">
+            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px;" >Veterinarias</p>
+          </div>
+          <div (click)="services()" class="square-button">
+            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px;" >Veterinarias</p>
+          </div>
+          <div (click)="services()" class="square-button">
+            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px;" >Veterinarias</p>
+          </div>
+        </div>
+     
+        
+      </div>
+     <div style="margin-left: 26px;margin-bottom: 27px;">
+   
+  <div *ngFor="let pet of espera" class="pet-square">
+    <div style="margin-left: 25px;">
+      <h3>
+        {{pet.name}}
+      </h3>
+      <p style="color: #A89D9B;
+      font-weight: 500;
+      line-height: 27.5px; /* 250% */
+      letter-spacing: -0.25px;">
+        {{pet.service}}
+      </p>
+      <div style="display: flex; align-items: center;">
+        <img style="width: 10px; height: 10px; margin-right: 5px;" src="../../../assets/icon/stateIcons/Ready.png" alt="">
+        <p style="color: var(--accessible-system-gray-light, #6C6C70);
+        font-weight: 400;
+        line-height: 24px; /* 218.182% */
+        letter-spacing: -0.38px;">
+          {{pet.state}}
+        </p>
+      </div>
+      
+    </div>
+    <img src="../../../assets/pruebas/perroCaja.png" alt="">
+  </div>
+  
+</div>
+
+      <div style="display: flex;  width: 100%; flex-direction: column;margin-left: 27px;margin-right: 23px; height: 550px;">
+        <div style="justify-content: space-between;width: 90%; display: flex; ">
+          <ion-label style="color: black;font-weight: 700;font-family: 'SF Pro';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;">Tus mascotas</ion-label> 
+        
+          <ion-label (click)="allpets()"><a style="text-decoration: none;color: #E0735C;margin-right: 23px;font-family: 'SF Pro';
+           font-style: normal;
+  font-weight: 600;
+  font-size: 16px;">Ver todas</a></ion-label> 
+        </div>
+        <div style="height: 100%;">
+          <!-- <p style="color: #393235;">{{showimage}}</p>
+          <p style="color: #393235;">{{mesage}}asdsada</p> -->
+          
+          <ion-row>
+            <ion-col size="5" *ngFor="let pet of items">
+              <div style="margin-top: 80px;
+              justify-content: center;
+              align-items: center;">
+               
+                  <div class="imgCard">
+                    <img style="width: 95px;
+                    height: 95px; border-radius: 24px; " alt="Silhouette of mountains" src="../../../assets/pruebas/perrito.jpg">
+                   
+                  </div>
+                  <ion-card-content style="background: white;border: 1px solid #E8E8E8; border-radius: 8px; width: 150.5px;
+                  height: 108px;" > 
+                    <div style="margin-top: 30px;display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 10px;">
+                      <div style="font-family: 'SF Pro';
+                      font-style: normal;
+                      font-weight: 600;
+                      font-size: 16px;
+                      color: #393235;margin-bottom:5px;">{{pet.name}}</div>
+                      <div >  <p style="font-family: 'SF Pro';
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 12px;
+                        color: #737373;padding-top: 5px;">{{pet.age}}</p></div>
+                    </div>
+                    <p style="color: #737373;font-family: 'SF Pro';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;">{{pet.allergies}}</p>
+                  </ion-card-content>
+              
+              </div>
+              
+            </ion-col>
+           
+          </ion-row>
+          <ion-row>
+            <ion-col (click)="addpet()">
+              <div style="margin-top: 80px;
+              justify-content: center;
+              align-items: center;">
+               
+                  <div class="imgCard">
+                    <div style=" border-radius: 24px;
+                    border: 3px solid #E0735C;
+                    background: #F9E3DE; height: 95px; width: 95px;display: flex; align-items: center;justify-content: center;">
+
+                      <img style="width: 46px;
+                      height: 44px; " alt="Silhouette of mountains" src="../../../assets/icon/logos/AddPet.png">
+                    </div>
+                   
+                  </div>
+                  <ion-card-content style="background: white;border: 1px solid #E8E8E8; border-radius: 8px; width: 150.5px;
+                  height: 108px;" > 
+                    <div style="margin-top: 30px;display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 10px;">
+                      <div style="font-family: 'SF Pro';
+                      font-style: normal;
+                      font-weight: 600;
+                      font-size: 16px;
+                      color: #393235;margin-bottom:5px;">dasdsasa</div>
+                      <div >  <p style="font-family: 'SF Pro';
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 12px;
+                        color: #737373;padding-top: 5px;">dasdsadsa</p></div>
+                    </div>
+                    <p style="color: #737373;font-family: 'SF Pro';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;">sadsad</p>
+                  </ion-card-content>
+              
+              </div>
+            </ion-col>
+            
+          </ion-row>
+          
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+</ion-content>
+<!-- <ion-footer class="ion-no-border">
+  <app-footer></app-footer>
+</ion-footer> -->

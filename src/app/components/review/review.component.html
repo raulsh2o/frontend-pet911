@@ -1,0 +1,25 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a style="margin-left: 27px;margin-right: 54px;" href="/header"> < Ir atrás</a> 
+      <h1>Tu reseña</h1>
+    </div>
+    <div class="div-body">
+      
+      <div class="ratinga">
+        <span *ngFor="let star of stars; let i = index" (click)="rate(i + 1)" [class.selected]="i < selectedRating">&#9733;</span>
+      </div>
+      
+      <p>Cuéntanos más de tu experiencia</p>
+
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <button>Enviar</button>
+    </div>
+ 
+    
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+  </ion-footer>

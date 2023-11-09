@@ -1,0 +1,282 @@
+.div-cont {
+    width: 100%;
+    max-width: 390px;
+    background: #f7f7f7;
+    height: 844px;
+  }
+  .div-top {
+    padding-top: 26px;
+    display: flex;
+    h1 {
+      color: #393235;
+      font-family: "SF Pro";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 27.5px;
+      letter-spacing: -0.408px;
+      margin: 0px;
+    }
+    a {
+      color: var(--primary-1, #e0735c);
+      font-family: "SF Pro";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 27.5px;
+      letter-spacing: -0.408px;
+      text-decoration: none;
+    }
+  }
+  
+  
+  .div-user {
+    background: white;
+    width: 100%;
+    height: 83px;
+    margin-top: 15px;
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 33px;
+      margin-left: 27px;
+      margin-right: 20px;
+    }
+    h3 {
+      font-family: 'SF Pro';
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 26px;
+      letter-spacing: -0.40799999237060547px;
+      text-align: left;
+      color: #4a4242;
+      margin: 0;
+      margin-right: 7px;
+    }
+    label {
+      width: 71px;
+      height: 21px;
+      top: 15px;
+      left: 128px;
+      padding: 2px 10px 2px 10px;
+      border-radius: 23px;
+      gap: 10px;
+      background: #fae8e5;
+      font-family: 'SF Pro';
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 17px;
+      letter-spacing: -0.40799999237060547px;
+      text-align: left;
+      color: #e0735c;
+      display: flex;
+      align-items: center;
+    }
+    p{
+      font-family: SF Pro Text;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 28px;
+          letter-spacing: -0.40799999237060547px;
+          text-align: left;
+          color: #A39A9A;
+          margin: 0;
+          
+    }
+  }
+  .div-conf{
+    margin-top: 24px;
+    margin-left: 19px
+  }
+  .div-square{
+    margin-bottom: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 352px;
+  height: 60px;
+  padding: 0px 14px 0px 14px;
+  border-radius: 16px;
+  border: 1px;
+  gap: 15px;
+  background: white;
+  p{
+    margin: 0;
+    font-family: 'SF Pro';
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: -0.40799999237060547px;
+  text-align: left;
+  color: #393235;
+  height: 19px;
+  
+  }
+  }
+  .icon{
+  width: 29px;
+  height: 29px;
+  margin-right: 15px;
+  }
+  .next{
+    width: 32px;
+    height: 32px;
+  }
+  .div-help{
+    margin-top: 16px;
+    margin-left: 19px;
+    h3{
+      margin: 0;
+      margin-left: 10px;
+      margin-bottom: 8px;
+      font-family: 'SF Pro';
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+      letter-spacing: -0.40799999237060547px;
+      text-align: left;
+      color: #000000;
+    }
+  }
+  ion-searchbar.custom {
+    --background: white;
+    --color: gray;
+    --placeholder-color: gray;
+    --icon-color: gray;
+    --clear-button-color: gray;
+  
+    --border-radius: 4px;
+    
+--box-shadow: none !important;
+    input{
+      height: 45px;
+    }
+  }
+  
+  ion-searchbar.ios.custom {
+    --cancel-button-color: gray;
+  }
+  
+  ion-searchbar.md.custom {
+    --cancel-button-color: gray;
+  }
+  .create{
+    display: flex;
+height: 41px;
+width: 77px;
+padding: 7px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 13px;
+background: var(--primary-1, #E0735C);
+color: #FFF;
+text-align: right;
+font-family: SF Pro Text;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 27.5px; /* 196.429% */
+letter-spacing: -0.408px;
+  }
+.div-search{
+    margin-left: 27px;
+    display: flex;
+    margin-top: 22px;
+}
+.div-form{
+    margin-top: 27px;
+    margin-left: 27px;
+    p{
+        color: #766868;
+        font-family: 'SF Pro';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    input{
+        display: flex;
+        width: 325px;
+        padding: 10px 0px 10px 26px;
+        align-items: center;
+        border-radius: 10px;
+border: 1px solid #D0D0D0;
+background: #FFF;
+color: #000000;
+    }
+    textarea{
+        width: 325px;
+        height: 92px;
+        flex-shrink: 0;
+        border-radius: 10px;
+border: 1px solid #D0D0D0;
+background: #FFF;
+resize: none;
+color: #000000;
+    }
+    button{
+        margin-top: 34.5px;
+        display: flex;
+        width: 325px;
+        height: 37px;
+        padding: 13px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        border-radius: 10px;
+background: var(--primary-1, #E0735C);
+color: var(--label-color-dark-primary, #FFF);
+text-align: center;
+font-family: 'SF Pro';
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 22px; /* 157.143% */
+letter-spacing: -0.408px;
+    }
+}
+.div-photo{
+    margin-left: 27px;
+    margin-top: 42px;
+    h1{
+        margin-top: 30px;
+        color: #523E3E;
+        font-family: 'SF Pro';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 27.5px; /* 114.583% */
+        letter-spacing: -0.408px;
+    }
+    p{
+        color: #766868;
+font-family: 'SF Pro';
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+margin-bottom: 29px;
+    }
+}
+.photo{
+    width: 330px;
+height: 341px;
+flex-shrink: 0;
+background: #E0735C;
+}
+.buton-photo{
+    display: flex;
+height: 45px;
+padding: 13px 20px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 10px;
+font-family: 'SF Pro';
+font-size: 17px;
+font-style: normal;
+font-weight: 600;
+line-height: 22px; /* 129.412% */
+letter-spacing: -0.408px;
+}

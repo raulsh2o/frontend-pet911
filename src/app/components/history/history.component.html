@@ -1,0 +1,98 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a style="margin-left: 27px;margin-right: 54px;" href="/header"> < Ir atrás</a> 
+      <h1>Historial</h1>
+    </div>
+    <div style="width: 100%;display: flex;margin-top: 17px;" >
+      <div style="width: 100% ;max-width: 341px;margin-left: 27px;">
+        <ion-searchbar style="padding-left: 0px;padding-right: 0px;height: 40px;" showCancelButton="focus" class="custom" placeholder="Peluquerias cerca de mi" (ionInput)="handleInput($event)"></ion-searchbar>
+      </div>
+  </div>
+  <div style="display: flex; width: 100%;margin-left: 26px;max-width: 350px;margin-top: 14px ;">
+        
+    <div class="lista-imagenes">
+      <div (click)="filter('30/05','30/06')" class="square-button">
+        <img src="../../../assets/icon/logos/DateOrange.png" alt="">
+        <p >30/05 - 30/06</p>
+      </div>
+      
+      <div class="square-button">
+        <img src="../../../assets/icon/logos/Petshop.png" alt="">
+        <p >Petshop</p>
+      </div>
+      </div>
+      </div>
+      <div style="display: flex;  width: 100%; flex-direction: column;margin-left: 16px;">
+       
+        <div >
+          
+            <ion-col *ngFor="let service of res" >
+              <ion-card >
+                
+                <ion-card-content style="padding-top: 0px;" > 
+                  <div style="display: grid;
+                  grid-template-columns: 1fr 3fr 1fr;
+                  grid-gap: 10px;">
+                  <div style=" width: 55px;">
+                    <img style=" width: 55px;
+                    height: 55.5px;margin-top: 8.75px;border-radius: 8px; " alt="Silhouette of mountains" src="../../../assets/pruebas/perro.png">
+                  
+                  </div>
+                    <div style="display: flex; align-items: center;margin-left: 5px;">
+                      <div style="width: 158px;">
+                        <p style=" color: #393235;
+                        font-family: 'SF Pro';
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        letter-spacing: -0.408px;">
+                          {{service.name}}</p>
+                          <p style="color: #737373;
+                          font-family: 'SF Pro';
+                          font-size: 11px;
+                          font-style: normal;
+                          font-weight: 400;
+                          line-height: 14px; ;">{{service.description}}</p>
+                          
+                      </div>
+                      <div style="width: 79px;">
+                        <a style="color: rgba(224, 115, 92, 0.85);
+                        font-family: 'SF Pro';
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        letter-spacing: -0.408px;
+                        text-decoration: none;" href=""> Mas detalles ></a>
+                        <p style="color: #393235;
+                        font-family: 'SF Pro';
+                        font-size: 10px;
+                        font-style: normal;
+                        font-weight: 510;
+                        line-height: normal;
+                        letter-spacing: -0.38px;"> {{service.date}}</p>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                 
+                 
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            
+          
+          
+        </div>
+  
+      </div>
+    
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+  </ion-footer>

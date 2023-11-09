@@ -1,0 +1,211 @@
+.div-cont {
+    height: 100%;
+    width: 100%;
+    max-height: 844px;
+    max-width: 390px;
+    background: #F7F7F7;
+  }
+
+.div-back{
+    width: 100%;
+   
+    
+  }
+.div-top{
+    font: bold;
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+
+    img{
+        padding-top: 30px;
+        height: 70px;
+        
+    }
+}
+.div-input{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.logIn{
+    --background: #E0735C;
+    border-radius: 30px;
+}
+.lostPass{
+    color: #E0735C;
+}
+.form-init {
+    position: relative;
+    margin-bottom: 1rem;
+    height: 37px;
+    width: 100%;
+    max-width: 158px;
+    margin: 2px;
+    button {
+    background: #E0735C;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      outline: none;
+      padding: 1rem;
+      z-index: 1;
+      color: white;
+      font-family: 'SF Pro';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0px;
+    }
+  
+    button:hover {
+      background: #fb907a;
+    }
+
+    
+  }
+
+
+.form-contra {
+    position: relative;
+    margin-bottom: 1rem;
+    height: 37px;
+    width: 100%;
+    max-width: 163px;
+    margin: 2px;
+    button {
+    background: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      border: solid 1px;
+      outline: none;
+      padding: 1rem;
+      z-index: 1;
+      color: #E0735C;
+      font-family: 'SF Pro';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 22px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0px;
+    }
+  
+    button:hover {
+      color: #f2cac2;
+    }
+
+    
+  }
+  .form-field {
+    position: relative;
+    margin-bottom: 1rem;
+    height: 48px;
+    width: 100%;
+    max-width: 324px;
+    input {
+        background: white;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          font-size: 16px;
+          font-weight: 500;
+          border: 1px solid #E8E8E8;
+          border-radius: 10px;
+          outline: none;
+          padding: 1rem;
+          z-index: 1;
+          color: #8D8282;
+          font-family: 'SF Pro';
+        }
+  
+    input:focus {
+      border-color: #E0735C;
+    }
+    input::placeholder {
+      color: #D0D0D0; /* Cambia el color a tu preferencia */
+    }
+  
+
+  }
+
+.square-container{
+  display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+        gap: 21px;
+        
+        width: 315px;
+        height: 88px;
+}
+
+  .square-button {
+    text-align: center;
+    width: 91px;
+    height: 88px;
+    max-width: 91px;
+    max-height: 88px;
+    padding: 0;
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+    background: white;
+  }
+  .square-button p{
+    color: black;
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+font-family: 'SF Pro';
+margin: 0px;
+  }
+  
+  
+  .welcome{
+    margin-top: 10px;
+    color: black;
+    height: 48px;
+    width: 100%;
+    left: 36px; 
+    margin-bottom: 20px; 
+    font-weight: 600; 
+    font-size: 24px;
+    font-family: 'SF Pro'; 
+    color: black; 
+    font-style: normal
+  }
+  ion-label{
+    
+        font-family: 'SF Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        color: #4A4242;
+  }
+  ion-icon{
+    position: relative;
+    z-index: 9999;
+    top: 15px;
+    right: 16px;
+    color: #D0D0D0;
+    height: 21.38px;
+    width: 21.56px;
+  }

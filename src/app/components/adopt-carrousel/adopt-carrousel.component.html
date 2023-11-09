@@ -1,0 +1,60 @@
+
+<ion-content >
+  <div class="div-cont">
+    <div class="div-header">
+      <a href="/start">< Ir atrás </a> 
+      <h1>
+        Adopción
+      </h1>
+    </div>
+    <div  class="filters">
+      <div (click)="filter('Perro')" class="square-button2">
+        <img src="../../../assets/icon/petIcons/Dog.png" alt="">
+        <p >Perros</p>
+      </div>
+      <div (click)="filter('Gato')" class="square-button2">
+        <img src="../../../assets/icon/petIcons/Cat.png" alt="">
+        <p >Gatos</p>
+      </div>
+      <div (click)="filter('Otro')" style="background: #FFECE8;border: 1px solid #FFD0C7;" class="square-button2">
+        <p style="color: #E0735C;" >Más filtros</p>
+        
+      </div>
+    </div>
+ 
+    <div style="display: flex; width: 100%;margin-left: 27px;max-width: 350px; margin-top: 27px;">
+      
+      <div class="lista-imagenes">
+        <div *ngFor="let pet of results"  class="square-button">
+         <div>
+          <div style="width: 302px; "> 
+            <div >
+              <div class="carousel">
+                <button class="arrow left" (click)="previousSlide(pet)">&#8249;</button>
+                <img class="slide" [src]="pet.images[pet.currentIndex]" alt="Slide Image">
+                <button class="arrow right" (click)="nextSlide(pet)">&#8250;</button>
+              </div>
+            </div>
+          </div>
+         </div>
+          <div (click)="info()"  class="card">
+            <div>
+              <h1>{{pet.name}}</h1>
+            <p>{{pet.type}} {{pet.age}}, {{pet.description}}</p>
+            </div>
+            <div class="square">
+              <img style="width: 35px; height: 35px;" src="../../../assets/icon/petIcons/Heart.png" alt="">
+            </div>
+          </div>
+        </div>
+       
+        
+      </div>
+
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer> 
+<app-footer></app-footer>
+</ion-footer>

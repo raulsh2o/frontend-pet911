@@ -1,0 +1,140 @@
+
+<ion-content [fullscreen]="true">
+ 
+  <div class="div-cont">
+    <div class="div-top" style="height: 20%;">
+      <img style="width: 97px;height: 57px;
+      " src="../../../assets/icon/logos/LogoHeader.png"/>
+    
+    </div>
+    
+      <div class="div-back">
+        
+        
+        <div  class="div-input">
+          <div style=" margin-top: 10px;
+          color: black;
+          height: 48px;
+          width: 80%;
+          margin-bottom: 20px; ">
+  
+            <ion-label class="welcome" >
+              Crea una cuenta
+            </ion-label>
+          </div>
+              <div *ngIf="!validALL" class="form-field">
+                
+                <input (change)="validarCor($event)" (keydown)="emailChange($event)"  type="email" placeholder="Correo electrónico" [(ngModel)]="email" [maxlength]="limite" />
+              </div>
+              <p *ngIf="!validCor" style="color: red;height: 10px; margin-top: 0px;">Correo electrónico inválido</p>
+         
+          <div *ngIf="!validALL" class="form-field">
+            <input (change)="validarPas($event)"  type="{{ showPassword ? 'text' : 'password' }}" id="passwordInput" [(ngModel)]="password" placeholder="Contraseña"  />
+            <div  style="text-align: end;width: 100%;" >
+              <ion-icon  (click)="togglePassword()"
+              [name]="showPassword?'eye-off-outline':'eye-outline'" 
+              ></ion-icon>
+            </div>
+            
+            
+          </div>
+          <p *ngIf="!validPas" style="color: red;font-size: 14px; margin-top: 0px; text-align: center; width: 90%;">Contraseña inválida Minimo 8 Caracteres con 1 Mayuscula, 1 Caracter Especial, 1 Numero</p> 
+          <div *ngIf="!validALL" class="form-field">
+            <input (change)="validarCofirmPas($event)" type="{{ confirmShowPassword ? 'text' : 'password' }}" id="consfirmPasswordInput" [(ngModel)]="confirmPassword" placeholder=" Confirmar contraseña"  />
+            <div  style="text-align: end;width: 100%;" >
+              <ion-icon  (click)="confirmTogglePassword()"
+              [name]="confirmShowPassword?'eye-off-outline':'eye-outline'" 
+              ></ion-icon>
+            </div>
+           
+            
+          </div>
+          <p *ngIf="!validConfirmPas" style="color: red;font-size: 14px; margin-top: 0px; text-align: center; width: 90%;">Contraseña inválida Minimo 8 Caracteres con 1 Mayuscula, 1 Caracter Especial, 1 Numero</p> 
+          <div *ngIf="validALL" class="form-field">
+            <!-- <input (keydown)="validDate($event)" type="date" [(ngModel)]="fechaSeleccionada" [max]="maxDate"> -->
+            <input  type="date" id="start" name="date"
+            [value]="fechaSeleccionada"
+       [min]="minDate" [max]="maxDate" [(ngModel)]="fechaSeleccionada" >
+
+
+          </div>
+         
+          <div *ngIf="validALL" class="form-field">
+            <input (change)="validarName($event)" (keydown)="validarName($event)" (keyup)="validarName($event)"   type="text" [(ngModel)]="name" placeholder="Nombre de Usuario"  pattern="^/[a-zA-Z]+$/"  [maxlength]="maxName">
+              
+            
+          </div>
+          <p *ngIf="!validName" style="color: red;font-size: 14px; margin-top: 0px; text-align: center; width: 90%;">Solo se aceptan letras</p> 
+          <div *ngIf="validALL" class="form-field">
+            <select  (click)="validarSelect($event)"  (change)="validarSelect($event)" [(ngModel)]="genSelec">
+              <option *ngFor="let edad of opcionesGen" >{{ edad }}</option>
+            </select>
+            
+          </div>
+          <p *ngIf="!validGen" style="color: red;font-size: 14px; margin-top: 0px; text-align: center; width: 90%;">Elija una opcion</p>
+          
+        </div>
+        <div *ngIf="!validALL" style="width: 100%;display: flex; justify-content: center; align-items: center;">
+          <div style="width: 100%;display: flex; justify-content: center;">
+            <div class="form-init">
+              <button (click)="continue()" > Continuar</button>
+            </div>
+           
+          </div>
+          
+        </div>
+        <p *ngIf="!validMatch" style="color: red;height: 20px;font-size: 14px; text-align: center;margin-bottom: 0px;">Las contraseñas no coinciden</p>
+            
+          
+        <div *ngIf="validALL" style="width: 100%;display: flex; justify-content: center; align-items: center;">
+          <div style="width: 100%;display: flex; justify-content: center;">
+            <div class="form-init">
+              <button (click)="register()" > Registrate</button>
+            </div>
+           
+          </div>
+        </div>
+        <p *ngIf="!validForm" style="color: red;height: 20px;font-size: 14px; text-align: center;margin-bottom: 0px;">Llene todos los campos</p>
+        <div style="width: 100%;display: flex; justify-content: center; align-items: center; margin-top: 47px;margin-bottom: 12px;">
+          <ion-label >
+            O crea una cuenta con
+          </ion-label>
+        </div>
+        
+        <div style="width: 100%;display: flex; justify-content: center; align-items: center;">
+          <div class="square-container">
+            <div class="square-button">
+              <img style="width: 40.99px;
+              height: 49.9px; margin-top: 10px;" src="../../../assets/icon/logos/Apple.png" alt="Descripción de la imagen">
+              
+            <p >Apple</p>
+            </div>
+            <div class="square-button">
+              <img style="width: 40.99px;
+              height: 41.9px;margin-top: 17px;" src="../../../assets/icon/logos/Google.png" alt="Descripción de la imagen">
+              
+            <p >Google</p>
+            </div>
+            <div (click)="checkmail()"  class="square-button">
+              <img style="width: 40px; height: 40.76px; margin-top: 18px;" src="../../../assets/icon/logos/Facebook.png" alt="Descripción de la imagen">
+              
+            <p >Facebook</p>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div style="width: 100%;display: flex; justify-content: center; align-items: center; margin-top: 13px;">
+          <ion-label>
+            ¿Tienes una cuenta? <a [routerLink]="['']" style="color: #E0735C; text-decoration: none;"> Inicia sesión</a>
+          </ion-label>
+        </div>
+        
+      </div>
+      
+  </div>
+  
+    
+    
+  </ion-content>
+  

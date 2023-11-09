@@ -1,0 +1,301 @@
+<ion-content class="no-scroll" fullscreen>
+  <div class="div-cont">
+    <div class="top">
+
+      <button style="left: 33px;
+    top: 58px;" class="top-button"> <img src="../../../assets/icon/actions/back.png" alt=""> </button>
+      <img class="top-img" src="../../../assets/pruebas/perrito.jpg" alt="">
+      <button style="right: 26px; top: 58px;" class="top-button"><img src="../../../assets/icon/actions/share.png" alt="">
+      </button>
+    </div>
+    <div style="margin-top: 24px;" class="div-title">
+      <div style="display: flex;">
+        <div class="rating">
+          <span *ngFor="let star of getStarsArray(ratinge)" class="star">&#9733;</span>
+          <span *ngFor="let star of getStarsArray(maxRating - ratinge)" class="">&#9733;</span>
+          <span class="numero">(8)</span>
+        </div>
+       
+        <div style="display: flex; ">
+          <img src="../../../assets/icon/stateIcons/Open.png" alt="">
+          <p class="open">Abierto Ahora</p>
+        </div>
+      </div>
+      <div style="display: flex; margin-top: 4px;">
+        <p class="title">Peluqueria Perritos</p>
+
+
+        <div class="square-button">
+          <img src="../../../assets/icon/actions/Phone.png" alt="">
+
+          <p style="color: black;">Contacto</p>
+        </div>
+      </div>
+
+
+    </div>
+    <hr style="border-radius: 2px;
+    background: #EBEBEB; margin: 0px;" />
+    <div class="div-services">
+      <p style="color: #4A4242;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24px;
+      
+  margin-bottom: 24px;">
+        Servicios</p>
+      <div class="service">
+        <img src="../../../assets/icon/logos/Peluquería.png" alt="">
+        <div style="margin-left: 22px;">
+          <p style="color: var(--label-color-light-primary, #000);
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 24px;">Peluqueria</p>
+          <p style="color: var(--accessible-system-gray-light, #6C6C70);
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: -0.2px; 
+          max-width: 299px;">Cortamos el pelo de tu mascota</p>
+        </div>
+      </div>
+      <div class="service">
+        <img src="../../../assets/icon/logos/Petshop.png" alt="">
+        <div style="margin-left: 22px;">
+          <p style="color: var(--label-color-light-primary, #000);
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 24px;">Petshop</p>
+          <p style="color: var(--accessible-system-gray-light, #6C6C70);
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: -0.2px;
+          max-width: 299px;">Compra los mejores productos para tu mascota.</p>
+        </div>
+      </div>
+    </div>
+    <hr style="border-radius: 2px;
+    background: #EBEBEB; margin: 0px;" />
+    <div class="div-map">
+      <h1>Ubicacion</h1>
+    
+      <div class="map">
+
+      </div>
+      <p style="color: #4A4242;
+      font-family: SF Pro;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: -0.38px;
+      margin-top: 12px;
+      margin-bottom: 0px;">ARCA (Fundación Protectora de Animales)</p>
+      <p style="color: #6C6C70;
+      font-family: SF Pro;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: -0.3px;
+      margin: 0px;">Baltazara de Calderón, nº12</p>
+    </div>
+    <hr style="border-radius: 2px;
+    background: #EBEBEB; margin: 0px;" />
+    <div class="div-hour">
+      <h1>Información</h1>
+      <h2>Horarios</h2>
+      <p>Días laborables 03:00 AM - 06:00 PM</p>
+      <p>Festivos y fines de semana 09:00 AM - 12:00 PM</p>
+    </div>
+    <div class="div-opinion">
+      <h1>Opiniones</h1>
+      <div class="value">
+        <div>
+          <span class="rateHeader">{{items.calificacion}}<span style="color: #3E35358F;font-size: 24px;">/5</span></span>
+          <p style="color: #4A4242;
+          font-family: 'SF Pro';
+          font-size: 11px;
+          font-style: normal;
+          font-weight: 590;
+          line-height: 24px;
+          margin: 0px;">{{items.total}} valoraciones</p>
+        </div>
+
+          <div class="row">
+            <div style="display: flex;">
+              <div class="data">
+                <div>5 </div>
+              </div>
+              <div class="progressBar">
+                <div class="progressContainer">
+                  <div class="bar-5" [style.width.%]="divWith5"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div style="display: flex;">
+              <div class="data">
+                <div>4 </div>
+              </div>
+              <div class="progressBar">
+                <div class="progressContainer">
+                  <div class="bar-4" [style.width.%]="divWith4"></div>
+                </div>
+              </div></div>
+            
+            
+            <div style="display: flex;">
+              <div class="data">
+                <div>3 </div>
+              </div>
+              <div class="progressBar">
+                <div class="progressContainer">
+                  <div class="bar-3" [style.width.%]="divWith3"></div>
+                </div>
+              </div>
+            </div>
+           
+            
+            <div style="display: flex;">
+              <div class="data">
+                <div>2 </div>
+              </div>
+              <div class="progressBar">
+                <div class="progressContainer">
+                  <div class="bar-2" [style.width.%]="divWith2"></div>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div style="display: flex;">
+              <div class="data">
+                <div>1</div>
+              </div>
+              <div class="progressBar">
+                <div class="progressContainer">
+                  <div class="bar-1" [style.width.%]="divWith1"></div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+        
+        
+      </div>
+
+      <div style="display: flex;justify-content: space-between; width: 345px;margin-top: 8px;margin-bottom: 4px;">
+        <div style="display: flex;align-items: center;">
+          <img style="width: 17px; height: 17px;margin-right: 4px;" src="../../../assets/icon/actions/Write.png" alt="">
+          <p style="color: #E0735C;
+          font-family: 'SF Pro';
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 27.5px;
+          letter-spacing: -0.408px; 
+          margin: 0px;">Añade una opinion</p>
+        </div>
+        
+        <div class="ratinga">
+          <span *ngFor="let star of stars; let i = index" (click)="rate(i + 1)" [class.selected]="i < selectedRating">&#9733;</span>
+        </div>
+
+      </div>
+      <div class="opinion">
+        <div style=" margin-top: 18px; width: 168px;">
+          <h2>Nombre</h2>
+          <p style="color: #737373;
+        font-family: 'SF Pro';
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;">Descripcion</p>
+          
+        </div>
+        <div style="display: flex; margin-top: 18px; height: 15px; width: 156px;justify-content: space-between;">
+          <div style="display: flex;">
+            <img style="width: 15px; height: 15px;" src="../../../assets/icon/logos/Date.png" alt="">
+            <p>Hace 3 dias</p>
+          </div>
+            <div style="display: flex;align-items: baseline;">
+
+
+              <span class="star">&#9733;</span>
+              <span class="numero">4.88</span>
+            </div>
+          
+          </div>
+          
+      </div>
+      <div class="opinion">
+        <div style=" margin-top: 18px; width: 168px;">
+          <h2>Nombre</h2>
+          <p style="color: #737373;
+        font-family: 'SF Pro';
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;">Descripcion</p>
+          
+        </div>
+        <div style="display: flex; margin-top: 18px; height: 15px; width: 156px;justify-content: space-between;">
+          <div style="display: flex;">
+            <img style="width: 15px; height: 15px;" src="../../../assets/icon/logos/Date.png" alt="">
+            <p>Hace 3 dias</p>
+          </div>
+            <div style="display: flex;align-items: baseline;">
+
+
+              <span class="star">&#9733;</span>
+              <span class="numero">4.88</span>
+            </div>
+          
+          </div>
+          
+      </div>
+      <div class="opinion">
+        <div style=" margin-top: 18px; width: 168px;">
+          <h2>Nombre</h2>
+          <p style="color: #737373;
+        font-family: 'SF Pro';
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;">Descripcion</p>
+          
+        </div>
+        <div style="display: flex; margin-top: 18px; height: 15px; width: 156px;justify-content: space-between;">
+          <div style="display: flex;">
+            <img style="width: 15px; height: 15px;" src="../../../assets/icon/logos/Date.png" alt="">
+            <p>Hace 3 dias</p>
+          </div>
+            <div style="display: flex;align-items: baseline;">
+
+
+              <span class="star">&#9733;</span>
+              <span class="numero">4.88</span>
+            </div>
+          
+          </div>
+          
+      </div>
+
+      <div style="display: flex; justify-content: center; margin-top: 12px; margin-bottom: 30px;">
+        <img width="22px" height="22px" src="../../../assets/icon/actions/DownArrow.png" alt="">
+        <p style="color: #E0735C;
+        font-family: 'SF Pro';
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 27.5px;
+        letter-spacing: -0.408px;">Ver Mas</p>
+      </div>
+    </div>
+    
+  </div>
+
+</ion-content>

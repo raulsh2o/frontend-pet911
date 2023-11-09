@@ -1,0 +1,44 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a style="margin-left: 27px;margin-right: 54px;" href="/header"> < Ir atrás</a> 
+      <h1>Crear QR</h1>
+    </div>
+    <div >
+      
+      
+    </div>
+    <div *ngIf="!create" class="div-form">
+      <p>Nombre de QR</p>
+      <input type="text" placeholder="Nombre">
+      <p>Tipo de QR</p>
+      <input type="text" placeholder="Elige un tipo">
+      <p>Descripción</p>
+      <textarea type="text" ></textarea>
+      <p>Usos limite</p>
+      <input type="text" placeholder="Escribe un número ">
+      <p>Fecha limite (opcional)</p>
+      <input type="text" placeholder="Elige una fecha">
+      <button (click)="qr()">Crear</button>
+    </div>
+    <div *ngIf="create" class="div-photo">
+      <div class="photo" >
+        <img height="100%" width="100%" src="../../../assets/pruebas/pruebaqr.webp" alt="">
+      </div>
+      <h1>QR generado</h1>
+      <p>Se ha generado el QR correctamente <br>
+        Aquí tienes una vista previa </p>
+        <div style="display: flex;justify-content: space-between;width: 330px;">
+          <button  class="buton-photo" style="background:#E0735C ;" (click)="continue()"><img src="../../../assets/icon/actions/Send.png" alt="">Compartir</button>
+          <button  class="buton-photo" style="background: white ;color: #E0735C;
+          border: 1px solid #E0735C;" (click)="back()">Volver al incio</button>
+          
+        </div>
+        
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+  </ion-footer>

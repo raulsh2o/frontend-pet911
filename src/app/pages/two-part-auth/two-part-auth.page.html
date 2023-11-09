@@ -1,0 +1,82 @@
+
+<ion-content [fullscreen]="true">
+ 
+  <div class="div-cont">
+    <div class="div-top" style="height: 15%;">
+      <div style="margin-left: 25px;margin-right: 59px;">
+        <a style="text-decoration: none; color: #E0735C; font-family: 'SF Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;" [routerLink]="['']"> {{volver}} </a>
+        
+      </div>
+      <div style="width: 100%;">
+        <img style="width: 97px;height: 27px; padding: 0px;
+      " src="../../../assets/icon/logos/LogoHeader.png"/>
+    
+      
+      </div>
+      
+    </div>
+    
+      <div class="div-back">
+        
+        
+        <div class="div-input">
+          <div style=" margin-top: 10px;
+          color: black;
+          height: 48px;
+          width: 80%;
+          margin-bottom: 20px; height: auto; ">
+          <div style="margin-bottom: 22px;">
+            <img style="height: 47.25px; width: 42px;" src="../../../assets/icon/logos/Padlock.png"/>
+            </div>
+            <div style="margin-bottom: 12px;">
+
+              <ion-label style="font-family: 'SF Pro';
+              font-style: normal;
+              font-weight: 600;
+              font-size: 24px;color: black;"> Introduce el 2FA</ion-label>
+            </div>
+            <div style="width: 273px;
+            height: 54px;">
+              <ion-label style="font-family: 'SF Pro';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 15px;color: #766868; ">Verifica tu dispositivo confirmando un correo electrónico que te hemos enviado.</ion-label>
+            </div>
+          
+          </div>     <div class="form-field " >
+                <input #txt1 (keyup)="move($event,'',txt1,txt2)" class="input" type="text"  [(ngModel)]="inputNumber1" [maxlength]="maxLimit">
+                <input #txt2  (keyup)="move($event,txt1,txt2,txt3)" class="input" type="text" [(ngModel)]="inputNumber2" [maxlength]="maxLimit">
+                <input #txt3 (keyup)="move($event,txt2,txt3,txt4)" class="input" type="text" [(ngModel)]="inputNumber3" [maxlength]="maxLimit">
+                
+                <input #txt4 (keyup)="move($event,txt3,txt4,txt5)" style="margin-left: 24px;" class="input" type="text"  [(ngModel)]="inputNumber4" [maxlength]="maxLimit">
+                <input #txt5 (keyup)="move($event,txt4,txt5,txt6)" class="input" type="text"  [(ngModel)]="inputNumber5" [maxlength]="maxLimit">
+                <input #txt6 (change)="limit()" (keyup)="move($event,txt5,txt6,'')" class="input" type="text" [(ngModel)]="inputNumber6" [maxlength]="maxLimit">
+
+              </div>
+           
+         
+         
+          
+          
+        </div>
+        <div style="width: 100%;display: flex; justify-content: center; align-items: center;">
+          <div style="width: 100%;display: flex; justify-content: center;">
+            <div class="form-init">
+              <button (click)="verify()"> Verificar</button>
+            </div>
+            
+          </div>
+        </div>
+        <p *ngIf="!validForm" style="color: red;height: 20px;font-size: 14px; text-align: center;margin-bottom: 0px;">Codigo incorrecto</p>
+        <p *ngIf="!validCode" style="color: red;height: 20px;font-size: 14px; text-align: center;margin-bottom: 0px;">Codigo expirado</p>
+      </div>
+      
+  </div>
+  
+    
+    
+  </ion-content>
+  

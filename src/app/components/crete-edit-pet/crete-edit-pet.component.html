@@ -1,0 +1,95 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a style="margin-left: 27px;margin-right: 5px;" href="/header"> < Ir atrás</a> 
+      <h1 *ngIf="first || second">Añadir mascotas</h1>
+      <h1 *ngIf="third || fourth">Crear mascotas</h1>
+    </div>
+    
+  
+      <div *ngIf="first" class="div-about">
+       <h1>Cuéntanos sobre tu mascota</h1>
+       <h5>¿De que especie es? </h5>
+       <div class="div-square">
+        <div class="square-button">
+          <img src="../../../assets/icon/petIcons/Dog.png" alt="">
+          <p>Perros</p>
+        </div>
+        
+        <div class="square-button">
+          <img src="../../../assets/icon/petIcons/Cat.png" alt="">
+          <p>Gatos</p>
+        </div>
+        
+        <div class="square-button">
+          <img src="../../../assets/icon/petIcons/Cat.png" alt="">
+          <p>Peces</p>
+        </div>
+       </div>
+       <h5>¿Como se llama?</h5>
+       <input type="text" placeholder="Nombre">
+       <h5>¿Cuántos años tiene?</h5>
+       <input type="text" placeholder="Selecciona un valor">
+
+       <button style="width: 325px;
+       height: 37px;margin-top: 24px;" class="next" (click)="continue('photo')">Siguiente</button>
+      </div>
+      <div *ngIf="second" class="div-photo">
+        <div class="photo" >
+        </div>
+        <h1>Elige una foto</h1>
+        <p>Confirma que los datos son correctos. <br>
+          No podras editarlo una vez enviado </p>
+        <div style="display: flex;width: 330px;justify-content: space-between;">
+
+          <button *ngIf="!send" class="buton-photo" style="background: white ;color: #E0735C;
+          border: 1px solid #E0735C;width: 151px;" (click)="back('photo')">Anterior</button>
+          <button *ngIf="!send" class="buton-photo" style="background:#E0735C ;" (click)="continue('info')"><img src="../../../assets/icon/actions/Camera.png" alt="">Tomar foto</button>
+
+          <button *ngIf="send" class="buton-photo" style="background: white ;color: #E0735C;
+          border: 1px solid #E0735C;width: 151px;" (click)="back('photo')">
+            Cancelar
+          </button>
+          <button *ngIf="send" (click)="sendToAPI()" class="buton-photo" style="background:#E0735C ; width: 151px">
+            <img src="../../../assets/icon/actions/Send.png" alt="">
+            Enviar
+          </button>
+          
+        </div>
+        
+      </div>
+      <div *ngIf="third" class="div-about">
+        <h1>Describe a tu mascota</h1>
+        <h5>Altura</h5>
+        <input type="text" placeholder="En cm">
+        <h5>Sexo</h5>
+        <input type="text" placeholder="Masculino/Femenino">
+        <h5>Raza</h5>
+        <input type="text" placeholder="Escribe la raza">
+        <div style="display: flex; align-items: center; margin-top: 17px;">
+          <button style="margin-right: 12px;" class="back" (click)="back('info')" >Anterior</button>
+          <button style="width: 215px;
+          height: 37px; " class="next" (click)="continue('optional')">Siguiente</button>
+        </div>
+        
+      </div>
+      <div *ngIf="fourth" class="div-optional">
+        <h1>¿Algún dato más?</h1>
+        <h5>Alergias</h5>
+        <textarea type="text" placeholder="Fármacos, alimentos o materiales..."></textarea>
+        <h5>Notas</h5>
+        <textarea type="text"></textarea>
+        
+        <div style="display: flex; align-items: center; margin-top: 17px;">
+          <button style="margin-right: 12px;" class="back" (click)="back('optional')" >Anterior</button>
+          <button style="width: 215px;
+          height: 37px; " class="next" (click)="continue('end')">Añadir la mascota</button>
+        </div>
+      </div>
+      
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+  </ion-footer>

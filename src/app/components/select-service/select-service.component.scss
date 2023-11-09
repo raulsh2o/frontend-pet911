@@ -1,0 +1,121 @@
+.div-body{
+    width: 390px;
+height: 777px;
+border-radius: 40px 40px 0px 0px;
+border: 1px solid #FFF;
+background: #F7F7F7;
+
+}
+.div-cont {
+    width: 100%;
+    max-width: 390px;
+    height: 100%;
+    background: #E0735C;
+    overflow: auto;
+    overflow-x: hidden;
+    display: flex;
+    align-items: end;
+  }
+.div-top{
+    margin-left: 41px;
+    margin-top: 20px;
+    h1{
+        margin: 0px;
+        margin-top: 4px;
+        margin-bottom: 14px;
+        color: #000;
+        font-family: 'SF Pro';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 27.5px; /* 114.583% */
+        letter-spacing: -0.408px;
+    }
+    h5{
+        margin: 0px;
+        color: var(--primary-1, #E0735C);
+        font-family: 'SF Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 27.5px; /* 171.875% */
+        letter-spacing: -0.408px;
+    }
+    img{
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 68px;
+    }
+    p{
+        margin: 0px;
+        margin-left: 17px;
+        width: 190.742px;
+        color: rgba(74, 66, 66, 0.64);
+        font-family: 'SF Pro';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.408px;
+        
+    }
+}
+.square{
+    display: flex;
+    justify-content: space-between;
+width: 352px;
+height: 60px;
+padding: 0px 14px;
+align-items: center;
+gap: 15px;
+border-radius: 16px;
+border: 1px solid #E0735C;
+background: #FFF;
+margin-bottom: 13px;
+p{
+    margin-left: 15px;
+    color: #393235;
+font-family: 'SF Pro';
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: -0.408px;
+}
+}
+.div-option{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 6px;
+border-radius: 22px;
+background: rgba(224, 115, 92, 0.16);
+}
+.div-services{
+
+    margin-left: 19px;
+    margin-top: 22px;
+    button{
+        margin-top: 18px;
+        display: flex;
+width: 352px;
+height: 37px;
+padding: 13px 20px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+border-radius: 10px;
+background: var(--primary-1, #E0735C);
+        color: var(--label-color-dark-primary, #FFF);
+text-align: center;
+font-family: 'SF Pro';
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 22px; /* 157.143% */
+letter-spacing: -0.408px;
+    }
+}

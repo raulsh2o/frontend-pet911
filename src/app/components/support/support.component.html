@@ -1,0 +1,27 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a style="margin-left: 27px;margin-right: 54px;" href="/header"> < Ir atrás</a> 
+      <h1>Soporte</h1>
+    </div>
+    <div class="div-body">
+      <label>¿Cuál es el problema?</label>
+      
+      <select id="selectOption" name="selectOption" [(ngModel)]="selectedOption">
+        <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+      </select>
+      <label>Cuéntanos más</label>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <label>¿Alguna foto?</label>
+        <button class="galery">
+          <img src="../../../assets/icon/actions/Galery.png" alt="">Importar de la galería</button>
+     
+      <button class="send">Enviar</button>
+    </div>
+  </div>
+ 
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+  </ion-footer>

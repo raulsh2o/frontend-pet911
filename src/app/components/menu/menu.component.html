@@ -1,0 +1,91 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a style="margin-left: 27px;margin-right: 54px;" href="/header"> < Ir atrás</a> 
+      <h1>Menú</h1>
+    </div>
+    <div class="div-user">
+      <div style="display: flex;padding-top: 20px;">
+      <div>
+        <img src="../../../assets/pruebas/perroAzul.png" alt="">
+      </div>
+      <div>
+        <div style="display: flex;align-items: center;">
+          <h3 >Nombre</h3>
+          <label *ngIf="associate" >Asociado</label>
+        </div>
+        <p >correo</p>
+      </div>
+    </div>
+    </div>
+    
+  <div class="div-conf">
+        <div class="div-square">
+          <div style="display: flex;align-items: center;">
+            <img class="icon" src="../../../assets/icon/userIcons/Profile.png" alt="">
+            <p>Editar perfil</p>
+          </div>
+          <img class="next" (click)="next('login')" src="../../../assets/icon/userIcons/Next.png" alt="">
+        </div>
+        <div class="div-square">
+          <div style="display: flex;align-items: center;">
+            <img class="icon" src="../../../assets/icon/userIcons/Configuration.png" alt="">
+            <p>Configuración</p>
+          </div>
+          <img class="next" (click)="next('register')" src="../../../assets/icon/userIcons/Next.png" alt="">
+        </div>
+        <div *ngIf="associate" class="div-square">
+          <div style="display: flex;align-items: center;">
+            <img class="icon" src="../../../assets/icon/userIcons/ManageCompany.png" alt="">
+            <p>Gestionar empresa</p>
+          </div>
+          <img class="next" (click)="next('allpets')" src="../../../assets/icon/userIcons/Next.png" alt="">
+        </div>
+        <div *ngIf="associate" class="div-square">
+          <div style="display: flex;align-items: center;">
+            <img class="icon" src="../../../assets/icon/userIcons/ManageQR.png" alt="">
+            <p>Gestionar QRs</p>
+          </div>
+          <img class="next" (click)="next('pet-info')" src="../../../assets/icon/userIcons/Next.png" alt="">
+        </div>
+    
+      </div>
+      <div class="div-help">
+       <h3>
+          Ayuda
+       </h3>
+        <div class="div-square">
+          <div style="display: flex;align-items: center;">
+            <img class="icon" src="../../../assets/icon/userIcons/Support.png" alt="">
+            <p>Soporte</p>
+          </div>
+          <img class="next" (click)="next('adopt-info')" src="../../../assets/icon/userIcons/Next.png" alt="">
+        </div>
+        <div class="div-square">
+          <div style="display: flex;align-items: center;">
+            <img class="icon" src="../../../assets/icon/userIcons/ServiceTerms.png" alt="">
+            <p>Términos de servicio</p>
+          </div>
+          <img class="next" (click)="next('history')" src="../../../assets/icon/userIcons/Next.png" alt="">
+        </div>
+        
+      </div>
+      <div class="div-help">
+        <h3>
+          Cuenta
+       </h3>
+        <div class="div-square">
+          <div style="display: flex;align-items: center;">
+            <img class="icon" src="../../../assets/icon/userIcons/Close.png" alt="">
+            <p>Cerrar sesión</p>
+          </div>
+          <img class="next" (click)="next('history')" src="../../../assets/icon/userIcons/Next.png" alt="">
+        </div>
+      </div>
+    
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+  </ion-footer>

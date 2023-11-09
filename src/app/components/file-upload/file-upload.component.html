@@ -1,0 +1,78 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a (click)="back()" style="margin-left: 27px;" > < Ir atrás</a> 
+      <h1>Aportes</h1>
+      <a style="margin-right: 33px;" href=""> Ajustes </a>
+    </div>
+    <div *ngIf="!upload && !send">
+      <div style="display: flex; text-align: center;justify-content: center; margin-top: 46px;">
+        <div class="div-info">
+          <div>
+            <img src="../../../assets/icon/actions/Sheet.png" alt="">
+          </div>
+          <div class="info">
+            <h2>Sube un aporte</h2>
+            <p>Para verificar un aporte, toma una foto del mismo y adjúntalo</p>
+          </div>
+          
+        </div>
+        
+      </div>
+      <div style="display: flex; justify-content: center; margin-top: 23px;">
+        <div>
+          <button class="photo" (click)="takePicture()" >
+            <img src="../../../assets/icon/actions/Camera.png" alt="">
+            Tomar foto
+          </button>
+          <button class="galery">
+            <img src="../../../assets/icon/actions/Galery.png" alt="">
+            Abrir galería
+          </button>
+         </div>
+      </div>
+    </div>
+    <div *ngIf="upload && !send">
+      <div style="display: flex; align-items: center;justify-content: center; margin-top: 42px;">
+        <div style="width: 330px; height: 341px;">
+          <img [src]="images[0].data" alt="" width="100%" height="100%">
+        </div>
+      </div>
+      <div style="display: flex;justify-content: center;">
+        <div class="div-upload" >
+          <h1>Verifica la foto</h1>
+          <p> Confirma que los datos son correctos. No podrás editarlo una vez enviado</p>
+          <div style="display: flex; justify-content: space-between;">
+            <button (click)="sendToAPI()" class="btn-send">
+              <img src="../../../assets/icon/actions/Send.png" alt="">
+              Enviar
+            </button>
+            <button class="again" (click)="cancel()">
+              Volver a intentar
+            </button>
+          </div>
+         
+        </div>
+      </div>
+        
+    </div>
+   <div *ngIf="send">
+    <div style="display: flex; justify-content: center;margin-top: 43px;">
+      <div style="width: 273px; height: 333px; text-align: center;">
+        <img src="../../../assets/icon/stateIcons/Check.png" alt="">
+      <div class="div-send">
+        
+        <h1>Aporte enviado</h1>
+        <p>Hemos recibido correctamente el aporte. Gracias por usar nuestros servicios.</p>
+      </div>
+      </div>
+
+    </div>
+   </div>
+   
+  </div>
+</ion-content>
+<!-- <ion-footer >
+  <app-footer></app-footer>
+  </ion-footer> -->
+ 

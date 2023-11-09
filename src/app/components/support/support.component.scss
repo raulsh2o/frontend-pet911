@@ -1,0 +1,110 @@
+.div-cont {
+    width: 100%;
+    max-width: 390px;
+    background: #F7F7F7;
+    height: 844px;
+  }
+.div-top{
+    padding-top: 26px;
+    display: flex;
+    h1{
+        color: #393235;
+font-family: 'SF Pro';
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 27.5px;
+letter-spacing: -0.408px;
+margin: 0px;
+    }
+    a{
+        color: var(--primary-1, #E0735C);
+font-family: 'SF Pro';
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 27.5px;
+letter-spacing: -0.408px;
+text-decoration: none;
+    }
+}
+
+.div-body{
+    margin-left: 27px;
+    margin-top: 28px;
+    label{
+        color: #766868;
+font-family: 'SF Pro';
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width: 273px;
+    }
+    select{
+        margin-top: 17px;
+        margin-bottom: 17px;
+        display: flex;
+        width: 280px;
+        padding: 10px 204px 10px 17px;
+        align-items: center;
+        border-radius: 10px;
+border: 1px solid #D0D0D0;
+background: #FFF;
+color: #393235;
+    }
+    textarea{
+        margin-top: 11px;
+        margin-bottom: 12px;
+        width: 332px;
+        height: 92px;
+        flex-shrink: 0;
+        border-radius: 10px;
+border: 1px solid #D0D0D0;
+background: #FFF;
+resize: none;
+    }
+}
+.galery{
+    margin-top: 12px;
+    margin-bottom: 26px;
+    display: flex;
+    padding: 10px 17px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 10px;
+border: 1px solid #D0D0D0;
+background: #FFF;
+color: #E0735C;
+font-family: 'SF Pro';
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 27.5px; /* 196.429% */
+letter-spacing: -0.408px;
+img{
+    width: 26px;
+    height: 26px;
+}
+}
+.send{
+    display: flex;
+    width: 325px;
+    height: 37px;
+    padding: 13px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 10px;
+background:  #E0735C;
+color:  #FFF;
+text-align: center;
+font-family: 'SF Pro';
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 22px; /* 157.143% */
+letter-spacing: -0.408px;
+}

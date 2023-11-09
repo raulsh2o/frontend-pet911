@@ -1,0 +1,107 @@
+
+<ion-content [fullscreen]="true">
+ 
+  <div class="div-cont">
+    <div class="div-top" style="height: 20%;">
+        <img style="width: 97px;height: 57px;
+        " src="../../../assets/icon/logos/LogoHeader.png"/>
+      
+    </div>
+    
+      <div class="div-back">
+        <div >
+          </div>
+        
+        <div class="div-input">
+          <div style=" margin-top: 10px;
+          color: black;
+          height: 48px;
+          width: 80%;
+          margin-bottom: 20px; ">
+  
+            <ion-label class="welcome" >Bienvenido de vuelta</ion-label>
+          </div>
+              <div class="form-field">
+                
+                <input (change)="validarCor($event)" (keydown)="emailChange($event)"  type="email" placeholder="Email" 
+                [(ngModel)]="email" [maxlength]="limite"  />
+                
+              </div>
+  <p *ngIf="!validCor" style="color: red;height: 10px; margin-top: 0px; font-family: SF Pro;">Correo electrónico inválido</p>
+         
+          <div class="form-field">
+            <input  type="{{ showPassword ? 'text' : 'password' }}" id="passwordInput" [(ngModel)]="password" placeholder="Contraseña"  maxlength="15"  />
+            <div  style="text-align: end;width: 100%;" >
+              <ion-icon  (click)="togglePassword()"
+              [name]="showPassword?'eye-off-outline':'eye-outline'" 
+              ></ion-icon>
+            </div>
+           
+      
+          </div>
+           
+            
+          
+        </div>
+        <div style="width: 100%;display: flex; justify-content: center; align-items: center;">
+          <div style="width: 85%;display: flex;">
+            <div class="form-init">
+              <button (click)="login()" > Iniciar sesion</button>
+            </div>
+            
+            <div  class="form-contra">
+              <button [routerLink]="['/password-recovery']" >¿Contraseña perdida? </button>
+            </div>
+          </div>
+        </div>
+        <p *ngIf="!validAuth " style="color: red;height: 20px;font-size: 14px; text-align: center;margin-bottom: 0px; font-family: SF Pro;">Llene todos los campos</p>
+        <p *ngIf="!validPas" style="color: red;height: 20px;font-size: 14px; text-align: center;margin-bottom: 0px; font-family: SF Pro;">Usuario o contraseña incorrectos</p> 
+        <div style="width: 100%;display: flex; justify-content: center;  margin-top: 27px;">
+  
+          <ion-label style="font-family: 'SF Pro';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          color: #4A4242;" >
+            O inicia sesión con
+          </ion-label>
+        </div>
+        
+        
+        <div style="width: 100%;display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; margin-top: 13px; margin-bottom: 13px;">
+          <div class="square-container">
+            <div (click)="initSesion()" class="square-button">
+                <img style="width: 40.99px;
+                height: 49.9px; margin-top: 10px;" src="../../../assets/icon/logos/Apple.png" alt="Apple">
+              
+              <p >Apple</p>
+            </div>
+            <div (click)="signIn()" class="square-button">
+              
+             <img style="width: 40.99px;
+              height: 41.9px;margin-top: 17px;" src="../../../assets/icon/logos/Google.png" alt="Google">
+            <p>Google</p>
+            </div>
+            <div (click)="loginFB()" class="square-button">
+              <img style="width: 40px; height: 40.76px; margin-top: 18px;" src="../../../assets/icon/logos/Facebook.png" alt="Facebook">
+              <p >Facebook</p>
+            </div>
+          </div>
+        </div>
+        <div style="width: 100%;display: flex; justify-content: center; ">
+          <ion-label>
+            No tienes una cuenta? <a [routerLink]="['/register']" style="color: #E0735C; text-decoration: none;">Crea una</a>
+          </ion-label>
+        </div>
+        
+      </div>
+      
+  </div>
+  
+    
+    
+  </ion-content>
+  

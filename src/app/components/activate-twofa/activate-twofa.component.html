@@ -1,0 +1,25 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a style="margin-left: 27px;margin-right: 54px;" href="/header"> < Ir atrás</a> 
+      <img src="../../../assets/icon/logos/LogoHeader.png" alt="">
+    </div>
+  <div class="div-body">
+      <img src="../../../assets/icon/logos/Padlock.png" alt="">
+      <h1 *ngIf="!activated" >Activar 2FA</h1>
+      <h1 *ngIf="activated">2FA activado</h1>
+      <p *ngIf="!activated">Activa la autenticación de 2 factores (2FA) para mayor seguridad. Para ello, por favor confirma tu correo electrónico.</p>
+      <p *ngIf="activated">Gracias por confirmar tu correo electrónico. 2FA ha sido activado para tu cuenta</p>
+      <input *ngIf="!activated" type="text" placeholder="Correo electrónico">
+      
+      <button *ngIf="!activated" (click)="active()">Continuar</button>
+      <button *ngIf="activated">Volver al inicio</button>
+      </div>
+
+    
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+  </ion-footer>

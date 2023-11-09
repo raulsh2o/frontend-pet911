@@ -1,0 +1,57 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a style="margin-left: 27px;margin-right: 54px;" href="/header"> < Ir atrás</a> 
+      <h1>Mis QRs</h1>
+    </div>
+    <div >
+      <div class="div-search" >
+        <ion-searchbar style="padding-left: 0px;padding-right: 0px;height: 40px;width: 248px; margin-right: 15px;" showCancelButton="focus" class="custom" placeholder="Buscar QR..." (ionInput)="handleInput($event)"></ion-searchbar>
+        <button class="create" (click)="createQR()">Crear</button>
+      </div>
+      
+    </div>
+    <div class="div-list">
+      <div class="qr-square">
+        <div style="width: 209px; height: 51px;">
+          <h3>Qr Clinica de Perritos</h3>
+          <p>Registro de empleado <br>
+          Lorem ipsum dolor sit amet </p>
+        </div>
+        <div style="width: 43px;height: 36px;">
+
+          <h5>Editar</h5>
+          <h6>2 usos</h6>
+        </div>
+      </div>
+      <div class="qr-square">
+        <div style="width: 209px; height: 51px;">
+          <h3>Qr Clinica de Perritos</h3>
+          <p>Registro de empleado <br>
+          Lorem ipsum dolor sit amet </p>
+        </div>
+        <div style="width: 43px;height: 36px;">
+
+          <h5>Editar</h5>
+          <h6>2 usos</h6>
+        </div>
+      </div>
+      <div class="qr-square">
+        <div style="width: 209px; height: 51px;">
+          <h3>Qr Clinica de Perritos</h3>
+          <p>Registro de empleado <br>
+          Lorem ipsum dolor sit amet </p>
+        </div>
+        <div style="width: 43px;height: 36px;">
+
+          <h5>Editar</h5>
+          <h6>2 usos</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+  </ion-footer>

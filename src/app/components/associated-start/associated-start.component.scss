@@ -1,0 +1,272 @@
+.div-cont {
+    height: 100%;
+    width: 100%;
+    max-height: 844px;
+    max-width: 390px;
+    background: #F7F7F7;
+    
+  overflow: auto;
+  overflow-x: hidden;
+  }
+  
+  .container{
+      position: relative;
+      height: 115px;
+      width: 100%;
+      max-height: 844px;
+      max-width: 390px;
+      background: #F7F7F7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .cloud{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: 100px;
+      background: white;
+      border-radius:40px 40px 0 0;
+  }
+  .cloud::before{
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 35%;
+      width: 30%;
+      height: 100%;
+      background: white;
+      border-radius:60px;
+  }
+  
+  .div-back{
+    height: 100%;
+    width: 100%;
+    max-height: 844px;
+    max-width: 390px;
+    background: #F7F7F7;
+  }
+  .containerHeader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 15%; 
+    }
+  .button{
+    height: 45.62px;
+      width:49px;
+      background: white;
+      border-radius: 5px;
+  }
+  .bar-header {
+      border: 0px !important;
+      border-bottom-color: transparent !important;
+      background-image: none !important;
+      border-bottom: none !important;
+  }
+  /* Scoped components require higher specificity to customize */
+  ion-searchbar.custom {
+      --background: white;
+      --color: #48484A;
+      --placeholder-color: #D0D0D0;
+      --icon-color: #D0D0D0;
+      --clear-button-color: #D0D0D0;
+      font-family: 'SF Pro';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      --border-radius: 10px;
+      
+  --box-shadow: none !important;
+    }
+    
+    ion-searchbar.ios.custom {
+      --cancel-button-color: gray;
+    }
+    
+    ion-searchbar.md.custom {
+      --cancel-button-color: gray;
+    }
+    .square-button {
+        
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 91px;
+height: 88px;
+flex-shrink: 0;
+border-radius: 10px;
+border: 1px solid #E8E8E8;
+background: #FFF;
+     margin-right: 20px;
+     
+     p{
+      margin: 0px;
+      font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: #393235;
+  width: 91px;
+  text-align: center;
+     }
+    }
+    ion-card{
+      width: 150px;
+      height: 100px;
+      background: white;
+    }
+    .imgCard{
+      width: 90%;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+      position: absolute;
+      z-index: 2;
+      bottom: 80px;
+      border-radius: 20px;
+    }
+
+    .lista-imagenes{
+      display: flex;
+    }
+  
+    .pet-square{
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      width: 338px;
+  height: 90px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(158, 158, 158, 0.22);
+  background: #FFF;
+  img{
+    width: 111px;
+    height: 90px;
+    
+  border-radius: 0px 16px  16px 0px;
+  }
+  h3{
+    color: #393235;
+  font-family: 'SF Pro';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27.5px; /* 171.875% */
+  letter-spacing: -0.09px;
+  margin: 0px;
+  height: 28px;
+  }
+  p{
+    height: 23px;
+  font-family: 'SF Pro';
+  font-size: 11px;
+  font-style: normal;
+  margin: 0px;
+  }
+    }
+.associates{
+    margin-top: 11px;
+    display: flex;
+width: 97px;
+padding: 2px 10px;
+justify-content: center;
+align-items: flex-start;
+gap: 10px;
+border-radius: 23px;
+background: #FAE8E5;
+color: #E0735C;
+font-family: 'SF Pro';
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: -0.408px;
+}
+
+.emergency-square{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 9px;
+    width: 329px;
+height: 89px;
+flex-shrink: 0;
+border-radius: 16px;
+border: 1px solid rgba(158, 158, 158, 0.22);
+background: #FFF;
+h3{
+    color: #393235;
+font-family: 'SF Pro';
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 27.5px; /* 171.875% */
+letter-spacing: -0.09px;
+margin: 0px;
+}
+h5{
+    color: #B87367;
+font-family: 'SF Pro';
+font-size: 11px;
+font-style: normal;
+font-weight: 500;
+line-height: 27.5px; /* 250% */
+letter-spacing: -0.25px;
+margin: 0px;
+}
+p{
+    color: rgba(74, 66, 66, 0.64);
+font-family: 'SF Pro';
+font-size: 10px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: -0.408px;
+margin: 0px;
+}
+}
+.option{
+    margin-right: 14px;
+    width: 60px;
+height: 54px;
+flex-shrink: 0;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+p{
+text-align: center;
+font-family: 'SF Pro';
+font-size: 10px;
+font-style: normal;
+font-weight: 600;
+letter-spacing: -0.408px;
+}
+}
+.filters{
+    display: flex;
+padding: 1px 12px;
+align-items: center;
+gap: 5px;
+border-radius: 10px;
+border: 1px solid #E8E8E8;
+background: #FFF;
+margin-right: 10px;
+p{
+    color: #393235;
+text-align: center;
+font-family: 'SF Pro';
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: 27.5px; /* 229.167% */
+letter-spacing: -0.408px;
+margin: 0px;
+}
+}

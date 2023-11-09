@@ -24,3 +24,12 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: 'SF Pro';
+    src: url('./theme/fonts/SFPro/FontsFree-Net-SFProText-Regular.ttf');
+  }
+@font-face {
+    font-family: 'Inter';
+    src: url('./theme/fonts/Inter/Inter-Regular.otf');
+  }

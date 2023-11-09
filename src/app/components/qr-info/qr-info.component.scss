@@ -1,0 +1,113 @@
+.div-cont {
+    width: 100%;
+    max-width: 390px;
+    background: #F7F7F7;
+    height: 844px;
+  }
+
+.info{
+    width: 313px;
+height: 197.99px;
+top: 455.02px;
+left: 39px;
+
+    h1{
+        color: #393235;
+font-family: 'SF Pro';
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: 27.5px;
+margin-bottom: 15px;
+    }
+    p{
+        color: #4A4242;
+font-family: 'SF Pro';
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -0.408px;
+margin: 0px;
+    }
+    img{
+        width: 22px;
+        height: 22px;
+        margin-right: 5px;
+    }
+  }
+.square{
+    width: 40.925px;
+    height: 40.925px;
+    
+}
+.contact{
+    width: 190px;
+height: 37px;
+top: 92.98px;
+padding: 13px, 20px, 13px, 20px;
+border-radius: 10px;
+gap: 10px;
+
+  text-decoration: none;
+    display: flex;
+justify-content: center;
+align-items: center;
+
+flex-shrink: 0;
+border-radius: 10px;
+background: var(--primary-1, #E0735C);
+color: var(--label-color-dark-primary, #FFF);
+text-align: center;
+font-family: 'SF Pro';
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 22px;
+letter-spacing: -0.408px;
+margin-right: 18px;
+
+}
+.delete{
+    width: 94.19px;
+height: 40.93px;
+top: 89.16px;
+left: 208px;
+padding: 8.96px, 19.21px, 9.86px, 21.94px;
+border-radius: 10px;
+border: 1px;
+font-family: 'SF Pro';
+font-size: 14px;
+font-weight: 600;
+line-height: 22px;
+letter-spacing: -0.40799999237060547px;
+text-align: center;
+color: #E0735C;
+background: white;
+}
+.div-header{
+    width: 390.56px;
+top: -0.28px;
+left: -0.39px;
+
+}
+.top-button{
+    margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 35px;
+    border-radius: 36px;
+  border: 0.5px solid rgba(0, 0, 0, 0.04);
+  background: var(--system-background-light-primary, #FFF);
+  box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.01), 0px 3px 8px 0px rgba(0, 0, 0, 0.12);
+  width: 36px;
+  height: 36px;
+  color: #010101;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 590;
+  line-height: 20px;
+  letter-spacing: 0.317px;
+  
+    }

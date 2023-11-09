@@ -1,0 +1,213 @@
+
+<ion-content   >
+  <div class="div-cont">
+    <div style="display: flex; padding-top: 26px;margin-bottom: 23px;">
+    
+      
+      <div class="containerHeader">
+        <div>
+          <a (click)="back()" style="text-decoration: none; color: #E0735C;margin-left: 27px;font-style: normal;
+          font-weight: 600;
+          font-size: 15px;"> < Ir atrás</a></div>
+        <div> <ion-label style="color: #393235;font-style: normal;
+          font-weight: 600;
+          font-size: 24px;"><h1 style="font-weight: 600;">Servicios</h1></ion-label></div>    
+        <div>
+          <a style="text-decoration: none; color: #E0735C; margin-right:33px ;font-style: normal;
+          font-weight: 600;
+          font-size: 15px;">Ajustes</a></div>  
+        </div>
+        
+      </div>
+    <div class="div-back">
+     
+      <div style="width: 100%; margin-top: 10px;margin-bottom: 17px; ">
+        
+          
+        <div style="width: 100%;display: flex;" >
+          <div style="width: 100% ;max-width: 271px;margin-left: 27px;">
+            <ion-searchbar style="padding-left: 0px;padding-right: 0px;height: 40px;" showCancelButton="focus" class="custom" placeholder="Peluquerias cerca de mi" (ionInput)="handleInput($event)"></ion-searchbar>
+          </div>
+          <div style=" display: flex; align-items: center;margin-left: 18px;">
+            <button class="button">
+              <img style="width: 31.62px;
+              height: 31.62px;" src="../../../assets/icon/logos/QRCode.png" alt="">
+            </button>
+          </div>
+         
+        </div>
+        </div>
+      <div style=" width: 100%;margin-left: 26px;max-width: 350px; ;">
+        
+        <div  class="lista-imagenes">
+          <div (click)="chips('Peluqueria')" class="square-button">
+            <img src="../../../assets/icon/logos/Peluquería.png" alt="">
+            <p >Peluquerias</p>
+          </div>
+          
+          <div (click)="chips('Petshop')" class="square-button">
+            <img src="../../../assets/icon/logos/Petshop.png" alt="">
+            <p >Petshop</p>
+          </div>
+          <div *ngIf="!more" style="background: #FFECE8;border: 1px solid #FFD0C7;" class="square-button">
+            <p (click)="filters()" style="color: #E0735C;" >Más filtros</p>
+            
+          </div>
+          <div (click)="chips('Clinica')" *ngIf="more" class="square-button">
+            <img src="../../../assets/icon/logos/Peluquería.png" alt="">
+            <p >Veterinarias</p>
+          </div>
+          
+        </div>
+        <div *ngIf="more" class="lista-imagenes" style="margin-top: 7px;">
+          <div (click)="chips('Hospedaje')" class="square-button" style="width: 100px;">
+            <img src="../../../assets/icon/logos/Peluquería.png" alt="">
+            <p >Hospedaje</p>
+          </div>
+          
+          <div (click)="chips('Adiestramiento')" class="square-button" style="width: 130px;">
+            <img src="../../../assets/icon/logos/Petshop.png" alt="">
+            <p >Adiestramiento</p>
+          </div>
+          <div  style="background: #FFECE8;border: 1px solid #FFD0C7;width: 100px;" class="square-button" >
+            <p (click)="filters()" style="color: #E0735C;" >Menos filtros</p>
+            
+          </div>
+          
+        </div>
+  
+      </div>
+     
+      <div style="margin-top: 10px;">
+       
+        <div *ngIf="results!=null" style="overflow: auto;height: 500px; " >
+          
+            <div style="margin-bottom: 10px;" *ngFor="let service of results;let index"  >
+              <ion-card >
+                
+                <ion-card-content style="padding-top: 0px;" > 
+                  <div style="display: grid;
+                  grid-template-columns: 1fr 3fr 1fr;
+                  grid-gap: 10px;"><div>
+                    <img style=" width: 55px;
+                    height: 55.5px;margin-top: 8.75px;border-radius: 8px; " alt="Silhouette of mountains" src="../../../assets/pruebas/perro.png">
+                  
+                  </div>
+                    <div style="padding-top: 13px;">
+                      <p style=" font-family: 'SF Pro';
+                      font-style: normal;
+                      font-weight: 600;
+                      font-size: 14px;
+                      color: #393235;">
+                        {{service.name}}</p>
+                        <p style="font-family: 'SF Pro';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 11px;
+                        color:#737373 ;">{{service.type}}</p>
+                        
+                    </div>
+                  
+                  <div style="padding-top: 13px;">
+                    <p *ngIf="service.sponsored" style=" font-family: 'SF Pro';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;color:#E0735C ;">Patrocinado</p>
+                    <div style="text-align: end;">
+                      <span class="estrellas">&#9733;</span>
+                      <span class="numero">4.5(8)</span>
+                    </div>
+                    </div>
+                  </div>
+                  
+                 
+                 
+                </ion-card-content>
+              </ion-card>
+            </div>
+            <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+          
+          
+        </div>
+        
+        <div *ngIf="results==null" class="conecction" >
+          <h1>Sin conexión</h1>
+          <div style="display: flex;justify-content: center;">
+            <p>Parece que hay problemas para conectarse con Internet. Revisa tu conexión e inténtalo de nuevo.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+</ion-content>
+<ion-footer>
+  
+  <app-footer></app-footer>
+</ion-footer>
+<!-- 
+<ion-content>
+<div *ngIf="results!=null" >
+          <div>
+            <div style="margin-bottom: 10px;" *ngFor="let service of results;let index"  >
+              <ion-card >
+                
+                <ion-card-content style="padding-top: 0px;" > 
+                  <div style="display: grid;
+                  grid-template-columns: 1fr 3fr 1fr;
+                  grid-gap: 10px;"><div>
+                    <img style=" width: 55px;
+                    height: 55.5px;margin-top: 8.75px;border-radius: 8px; " alt="Silhouette of mountains" src="../../../assets/pruebas/perro.png">
+                  
+                  </div>
+                    <div style="padding-top: 13px;">
+                      <p style=" font-family: 'SF Pro';
+                      font-style: normal;
+                      font-weight: 600;
+                      font-size: 14px;
+                      color: #393235;">
+                        {{service.name}}</p>
+                        <p style="font-family: 'SF Pro';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 11px;
+                        color:#737373 ;">{{service.type}}</p>
+                        
+                    </div>
+                  
+                  <div style="padding-top: 13px;">
+                    <p *ngIf="service.sponsored" style=" font-family: 'SF Pro';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;color:#E0735C ;">Patrocinado</p>
+                    <div style="text-align: end;">
+                      <span class="estrellas">&#9733;</span>
+                      <span class="numero">4.5(8)</span>
+                    </div>
+                    </div>
+                  </div>
+                  
+                 
+                 
+                </ion-card-content>
+              </ion-card>
+            </div>
+            <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+          
+          </div>
+  
+
+</div>
+<div>
+  Hola 
+</div>
+</ion-content>
+<ion-footer>
+
+</ion-footer> -->
