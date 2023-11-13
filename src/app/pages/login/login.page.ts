@@ -169,10 +169,10 @@ export class LoginPage implements OnInit {
             console.log(res.rol)
             if(res.rol=="Admin"){
               
-            this.router.navigate([`/header`])
+            this.router.navigate([`/associated-start`])
             }else{
 
-              this.router.navigate([`/start`])
+              this.router.navigate([`/client-start`])
             }
           }
         })

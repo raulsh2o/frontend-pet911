@@ -30,10 +30,10 @@ duration: number = 3000;
     this.router.navigate([`/contribution`])
   }
   home(){
-    this.router.navigate([`/start`])
+    this.router.navigate([`/client-start`])
   }
   homeAdmin(){
-    this.router.navigate([`/header`])
+    this.router.navigate([`/associated-start`])
   }
   adopt(){
     console.log("AAAAAAAAAAAAAAAAAAAAAA")
