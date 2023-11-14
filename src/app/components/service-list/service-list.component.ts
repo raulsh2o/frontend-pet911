@@ -51,7 +51,7 @@ export class ServiceListComponent  implements OnInit {
   }
 
   back(){
-    this.router.navigate([`/start`])
+    this.router.navigate([`client-start`])
   }
   home(){
     this.router.navigate([`/start`])

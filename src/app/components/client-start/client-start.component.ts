@@ -59,10 +59,10 @@ mesage:any
   }
   services(){
     
-    this.router.navigate([`/service`])
+    this.router.navigate([`service-list`])
   }
   aport(){
-    this.router.navigate([`/contribution`])
+    this.router.navigate([`/qr-list`])
   }
   
   // noti(){
