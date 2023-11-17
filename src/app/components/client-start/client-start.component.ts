@@ -26,7 +26,11 @@ token:any
 user:any
 name:string=''
 mesage:any
-  constructor(private router:Router,private service:ApiService,private activatedRoute:ActivatedRoute) { }
+  constructor(
+    private router:Router,
+    private service:ApiService,
+    private activatedRoute:ActivatedRoute
+    ) { }
 
   ngOnInit() {
     

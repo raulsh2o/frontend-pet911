@@ -8,6 +8,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 //import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { isPlatform } from '@ionic/angular';
+import { NotificationsService } from '../../services/notifications.service';
 var emails: { email: any; int: number; }[]=[]
 declare const FB: any;
 
@@ -44,7 +45,7 @@ export class LoginPage implements OnInit {
     password:''
   }
   lista:any
-  constructor(private service:ApiService,private router:Router,private _ngZone:NgZone,private authService:AuthService) { 
+  constructor(private service:ApiService,private router:Router,private _ngZone:NgZone,private authService:AuthService, private notification:NotificationsService) { 
     if(!isPlatform('capacitor')){
     //  GoogleAuth.initialize()
     }
@@ -131,6 +132,7 @@ export class LoginPage implements OnInit {
 // }
 
   login(){
+    this.createReminder()
     this.auth.password=this.password
     this.auth.email=this.email
     console.log(this.auth)
@@ -182,6 +184,17 @@ export class LoginPage implements OnInit {
       
     }
    
+  }
+  createReminder(): void {
+    console.log('Entró en las notificaciones');
+    const now = new Date();
+    const secondsLater = new Date(now.getTime() + 2000); // Añade 2000 milisegundos (2 segundos) al tiempo actual
+    
+    this.notification.showLocalNotification(
+      'Hola',
+      'Raul',
+      secondsLater // Usa la hora actual más 2 segundos
+    );
   }
   togglePassword() {
     this.showPassword = !this.showPassword;
