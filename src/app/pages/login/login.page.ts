@@ -167,7 +167,7 @@ export class LoginPage implements OnInit {
                 console.log('No mas emails')
               }
             }
-          //  this.initSesion()
+            this.initSesion()
             console.log(res.rol)
             if(res.rol=="Admin"){
               
@@ -255,10 +255,10 @@ export class LoginPage implements OnInit {
       this.message = '';
     }, 5000);
   }
-   initSesion(){
-     this._hubConnection = new HubConnectionBuilder().withUrl('https://localhost:7001/notify').build();
+    initSesion(){
+/*      this._hubConnection = new HubConnectionBuilder().withUrl('https://localhost:7001/notify').build();
      this._hubConnection.start()
-     .then(()=>{
+      .then(()=>{
        this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>{
         var session={
            id: ConnectionId,
@@ -282,8 +282,33 @@ export class LoginPage implements OnInit {
      this._hubConnection.on('BroadcastMessage', (message:any)=>{
        this.signaldata.push(message);
        this.showimage=true;
+     })   */
+    this._hubConnection = new HubConnectionBuilder().withUrl('http://localhost:5215/notify').build();
+    this._hubConnection.start()
+    .then(()=>{
+       this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>{
+        var session={
+          id: ConnectionId,
+          email:this.email
+        }
+         this.authService.postSession(session).subscribe((res:any)=>{
+         
+           localStorage.setItem('session',res.id)
+           console.log(res)
+         })
+        console.log(ConnectionId,'ahfsdtagshdgjsah')
+      })
+     },
+     console.log('connection start'))
+     .catch((err: any) => {
+      console.error('Error de conexión:', err);
+    });
+     console.log(this._hubConnection)
+     this._hubConnection.on('BroadcastMessage', (message:any)=>{
+       this.signaldata.push(message);
+       console.log(message)
+       this.showimage=true;
      })
-
    }
 
 }

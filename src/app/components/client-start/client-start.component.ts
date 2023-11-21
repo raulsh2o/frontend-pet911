@@ -41,7 +41,7 @@ mesage:any
       this.pets=res
       console.log(this.pets)
     })
-    this._hubConnection = new HubConnectionBuilder().withUrl('http://localhost:5215/notify').build();
+/*     this._hubConnection = new HubConnectionBuilder().withUrl('http://localhost:5215/notify').build();
     this._hubConnection.start()
     .then(()=>{
        this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>
@@ -56,7 +56,7 @@ mesage:any
        this.signaldata.push(message);
        console.log(message)
        this.showimage=true;
-     })
+     }) */
   }
   emergency(){
     this.router.navigate([`/mapa`])

@@ -21,7 +21,7 @@ export class AssociatedStartComponent  implements OnInit {
 
   ngOnInit() {
     console.log("entro admin");
-    this._hubConnection = new HubConnectionBuilder().withUrl('http://localhost:5215/notify').build();
+/*     this._hubConnection = new HubConnectionBuilder().withUrl('http://localhost:5215/notify').build();
     this._hubConnection.start()
     .then(()=>{
        this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>
@@ -36,7 +36,7 @@ export class AssociatedStartComponent  implements OnInit {
        this.signaldata.push(message);
        console.log(message)
        this.showimage=true;
-     })
+     }) */
   }
   hola(){
     this.router.navigate([`/history`])
