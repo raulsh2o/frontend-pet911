@@ -9,9 +9,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class EmergencyComponent  implements OnInit {
   mascotas: any[] = [];
+  email_admin:any = {
+    email: ''
+  };
   constructor(
     private router:Router, 
-    private authService:AuthService
+    private authService:AuthService,
     ) { }
 
   ngOnInit() {
@@ -33,9 +36,10 @@ export class EmergencyComponent  implements OnInit {
   back() {
     this.router.navigate([`/`]);
   }
-  notify(){
-    
-    this.authService.getNotify().subscribe((res:any)=>{
+  notify(correo: string){
+    const model = { Email: correo };
+    console.log(correo)
+    this.authService.postNotify(model).subscribe((res:any)=>{
       console.log(res)
     })
   }

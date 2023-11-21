@@ -52,8 +52,8 @@ export class AuthService {
     return this.http.get(this.url+'Admins');
   }
 
-  getNotify(){
-    return this.http.get(this.url+'Notification');
+  postNotify(model: any) {
+    return this.http.post(this.url + 'Notification', model);
   }
 
   //Methods for sending notifications

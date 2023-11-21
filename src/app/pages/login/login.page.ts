@@ -306,7 +306,9 @@ export class LoginPage implements OnInit {
      console.log(this._hubConnection)
      this._hubConnection.on('BroadcastMessage', (message:any)=>{
        this.signaldata.push(message);
-       console.log(message)
+       if (this.email === message.information){
+        console.log("Notificacion de Emergencia!!!!")
+       }
        this.showimage=true;
      })
    }
