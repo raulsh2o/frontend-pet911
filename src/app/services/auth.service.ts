@@ -52,7 +52,9 @@ export class AuthService {
     return this.http.get(this.url+'Admins');
   }
 
-
+  getNotify(){
+    return this.http.get(this.url+'Notification');
+  }
 
   //Methods for sending notifications
   

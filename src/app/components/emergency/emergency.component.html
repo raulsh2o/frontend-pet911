@@ -6,38 +6,17 @@
       <a style="margin-right: 33px;" href="configuration"> Ajustes </a>
     </div>
     <div class="div-list">
-      <div class="div-square">
+      <div class="div-square" *ngFor="let mascota of mascotas">
         <div style="display: flex; align-items: center;">
-          <img src="../../../assets/pruebas/gatoAzul.jpg" alt="">
+          <img [src]="mascota.imagen" alt="">
           <div>
-            <h4>Nombre</h4>
-            <p>Raza Edad</p>
+            <h4>{{ mascota.nombre }}</h4>
+            <p>{{ mascota.correo }}</p>
           </div>
         </div>
-        <h5 (click)="editpet()"> Editar ></h5>
+        <h5 (click)="notify()"> Notificar! ></h5>
       </div>
-      <div class="div-square">
-        <div style="display: flex; align-items: center;">
-          <img src="../../../assets/pruebas/gatoRosa.jpg" alt="">
-          <div>
-            <h4>Nombre</h4>
-            <p>Raza Edad</p>
-          </div>
-        </div>
-        <h5 (click)="editpet()"> Editar ></h5>
-      </div>
-      <div class="div-square">
-        <div style="display: flex; align-items: center;">
-          <img src="../../../assets/pruebas/perroCeleste.png" alt="">
-          <div>
-            <h4>Nombre</h4>
-            <p>Raza Edad</p>
-          </div>
-        </div>
-        <h5 (click)="editpet()"> Editar ></h5>
-      </div>
-    </div>
-   
+    </div>    
   </div>
 </ion-content>
 <ion-footer >
