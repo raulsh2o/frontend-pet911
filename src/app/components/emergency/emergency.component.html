@@ -1,0 +1,46 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a (click)="back()" style="margin-left: 27px;" > < Ir atrás</a> 
+      <h1>Tus mascotas</h1>
+      <a style="margin-right: 33px;" href="configuration"> Ajustes </a>
+    </div>
+    <div class="div-list">
+      <div class="div-square">
+        <div style="display: flex; align-items: center;">
+          <img src="../../../assets/pruebas/gatoAzul.jpg" alt="">
+          <div>
+            <h4>Nombre</h4>
+            <p>Raza Edad</p>
+          </div>
+        </div>
+        <h5 (click)="editpet()"> Editar ></h5>
+      </div>
+      <div class="div-square">
+        <div style="display: flex; align-items: center;">
+          <img src="../../../assets/pruebas/gatoRosa.jpg" alt="">
+          <div>
+            <h4>Nombre</h4>
+            <p>Raza Edad</p>
+          </div>
+        </div>
+        <h5 (click)="editpet()"> Editar ></h5>
+      </div>
+      <div class="div-square">
+        <div style="display: flex; align-items: center;">
+          <img src="../../../assets/pruebas/perroCeleste.png" alt="">
+          <div>
+            <h4>Nombre</h4>
+            <p>Raza Edad</p>
+          </div>
+        </div>
+        <h5 (click)="editpet()"> Editar ></h5>
+      </div>
+    </div>
+   
+  </div>
+</ion-content>
+<ion-footer >
+  <app-footer></app-footer>
+  </ion-footer>
+ 

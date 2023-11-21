@@ -24,7 +24,7 @@ duration: number = 3000;
    }
   }
   emergency(){
-    this.router.navigate([`/mapa`])
+    this.router.navigate([`/emergency`])
   }
   aport(){
     this.router.navigate([`/contribution`])

@@ -48,6 +48,10 @@ export class AuthService {
     return this.http.post(this.url+'api/NotifyToken/',model)
   }
 
+  getAdmins(){
+    return this.http.get(this.url+'Admins');
+  }
+
 
 
   //Methods for sending notifications
