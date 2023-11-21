@@ -1,6 +1,6 @@
 import { Component, OnInit,Input,NgZone } from '@angular/core';
 
-//import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
+import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { ApiService } from 'src/app/services/api.service';
 import { ActivatedRoute,Router } from '@angular/router';
 
@@ -18,7 +18,7 @@ declare const FB: any;
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
- // private _hubConnection: HubConnection | any;
+  private _hubConnection: HubConnection | any;
   showimage: boolean=false;
   signaldata: any[]=[];
   
@@ -203,9 +203,9 @@ export class LoginPage implements OnInit {
     
     this.router.navigate([`/start`])
   }
-  initSesion(){
+/*   initSesion(){
 
-  }
+  } */
   emailChange(event:any){
     this.validCor=true
     this.validPas=true
@@ -255,35 +255,35 @@ export class LoginPage implements OnInit {
       this.message = '';
     }, 5000);
   }
-  // initSesion(){
-  //   this._hubConnection = new HubConnectionBuilder().withUrl('https://localhost:7001/notify').build();
-  //   this._hubConnection.start()
-  //   .then(()=>{
-  //     this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>{
-  //      var session={
-  //         id: ConnectionId,
-  //         email:this.email
-  //       }
-  //       // this.service.postSession(session).subscribe((res:any)=>{
+   initSesion(){
+     this._hubConnection = new HubConnectionBuilder().withUrl('https://localhost:7001/notify').build();
+     this._hubConnection.start()
+     .then(()=>{
+       this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>{
+        var session={
+           id: ConnectionId,
+           email:this.email
+         }
+          this.authService.postSession(session).subscribe((res:any)=>{
           
-  //       //   localStorage.setItem('session',res.id)
-  //       //   console.log(res)
-  //       // })
-  //       console.log(ConnectionId,'ahfsdtagshdgjsah')
-  //     }
-  //     )
+            localStorage.setItem('session',res.id)
+            console.log(res)
+          })
+         console.log(ConnectionId,'ahfsdtagshdgjsah')
+       }
+       )
       
-  //   },
-  //   console.log('connection start'))
-  //   .catch((err:any)=>{
-  //     console.log('Error while establishing the connection')
-  //   });
-  //   console.log(this._hubConnection)
-  //   this._hubConnection.on('BroadcastMessage', (message:any)=>{
-  //     this.signaldata.push(message);
-  //     this.showimage=true;
-  //   })
+     },
+     console.log('connection start'))
+     .catch((err:any)=>{
+       console.log('Error while establishing the connection')
+     });
+     console.log(this._hubConnection)
+     this._hubConnection.on('BroadcastMessage', (message:any)=>{
+       this.signaldata.push(message);
+       this.showimage=true;
+     })
 
-  // }
+   }
 
 }
