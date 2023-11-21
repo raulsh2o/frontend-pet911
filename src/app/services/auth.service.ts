@@ -51,6 +51,9 @@ export class AuthService {
   getAdmins(){
     return this.http.get(this.url+'Admins');
   }
+  getClients(){
+    return this.http.get(this.url+'Clients');
+  }
 
   postNotify(model: any) {
     return this.http.post(this.url + 'Notification', model);

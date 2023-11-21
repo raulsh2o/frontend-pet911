@@ -41,6 +41,10 @@ export class AssociatedStartComponent  implements OnInit {
   hola(){
     this.router.navigate([`/history`])
   }
+  notification(){
+    console.log("notification")
+    this.router.navigate([`/emergency_list`])
+  }
   cancel(name:any){
     this.items = this.items.filter(pet=>pet.name !=name)
   }
