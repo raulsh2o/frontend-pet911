@@ -5,10 +5,11 @@ import { IonicModule } from '@ionic/angular';
 
 import {  EmergencyListComponent } from './emergency-list.component';
 import { FooterModule } from '../footer/footer.module';
+import { IonicStorageModule } from '@ionic/storage-angular';
 @NgModule({
     
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  imports: [ CommonModule, FormsModule, IonicModule,FooterModule],
+  imports: [ CommonModule, FormsModule, IonicModule,FooterModule,IonicStorageModule.forRoot()],
   declarations: [EmergencyListComponent],
   exports: [EmergencyListComponent]
 })

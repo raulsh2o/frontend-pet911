@@ -12,9 +12,10 @@
           <div>
             <h4>{{ client.nombre }}</h4>
             <p>{{ client.correo }}</p>
+            <p>{{ client.mensaje }}</p>
           </div>
         </div>
-        <h5 (click)="notify(client.correo)"> Notificar! ></h5>
+        <h5 (click)="notify()"> Confirmar! ></h5>
       </div>
     </div>    
   </div>

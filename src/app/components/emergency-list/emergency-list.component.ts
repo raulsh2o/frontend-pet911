@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { MessageServiceService } from '../../services/message-service.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-emergency-list',
@@ -10,42 +11,47 @@ import { MessageServiceService } from '../../services/message-service.service';
 })
 export class EmergencyListComponent  implements OnInit {
   clients: any[] = [];
-  messagenotify: string = '';
   constructor(
     private router:Router, 
     private authService:AuthService,
-    private messageService: MessageServiceService
+    private messageService: MessageServiceService,
+    private storage:Storage
   ) { }
 
   ngOnInit() {
-    this.messageService.message$.subscribe((message) => {
-      console.log('Mensaje recibido en EmergencyListComponent:', message);
-        this.messagenotify = message
+    this.storage.create().then(() => {
+      console.log('Base de datos creada');
+      this.storage.get('client_email').then((value) => {
+        console.log('Valor recuperado:', value);
+        const model = { 
+          Email_rx: value,
+          Email_tx: ''
+        };
+        this.authService.postSMSNotification(model).subscribe((res:any)=>{
+          console.log(res[0])
+          for (var i=0; i<res.length; i++){
+            var admin = {
+              nombre: 'Cliente', // Puedes mantener un nombre genérico
+              correo: res[i],
+              mensaje: 'mensaje de emergencia!', // Puedes mantener una edad genérica
+              imagen: '../../../assets/pruebas/gatoAzul.jpg' // Puedes mantener una imagen genérica
+            }
+            this.clients.push(admin);
+          }
+        })
+      }).catch(error => {
+        console.error('Error al obtener client_email', error);
+      });
+    }).catch(error => {
+      console.error('Error al crear la base de datos', error);
     });
-    this.authService.getClients().subscribe((res:any)=>{
-      console.log(res)
-      for (let i = 0; i < res.length; i++) {
-        var admin = {
-          nombre: 'Cliente', // Puedes mantener un nombre genérico
-          correo: res[i],
-          edad: 'Edad', // Puedes mantener una edad genérica
-          imagen: '../../../assets/pruebas/gatoAzul.jpg' // Puedes mantener una imagen genérica
-        }
-        this.clients.push(admin);
-      }
-    })
   }
 
   back() {
     this.router.navigate([`/`]);
   }
 
-  notify(correo: string){
-    const model = { Email: correo };
-    console.log(correo)
-/*     this.authService.postNotify(model).subscribe((res:any)=>{
-      console.log(res)
-    }) */
+  notify(){
   }
 
 }
