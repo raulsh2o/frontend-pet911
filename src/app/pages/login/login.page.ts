@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 //import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { isPlatform } from '@ionic/angular';
 import { NotificationsService } from '../../services/notifications.service';
+import { Storage } from '@ionic/storage';
 var emails: { email: any; int: number; }[]=[]
 declare const FB: any;
 
@@ -45,7 +46,7 @@ export class LoginPage implements OnInit {
     password:''
   }
   lista:any
-  constructor(private service:ApiService,private router:Router,private _ngZone:NgZone,private authService:AuthService, private notification:NotificationsService) { 
+  constructor(private service:ApiService,private router:Router,private _ngZone:NgZone,private authService:AuthService, private notification:NotificationsService, private storage: Storage) { 
     if(!isPlatform('capacitor')){
     //  GoogleAuth.initialize()
     }
@@ -135,6 +136,12 @@ export class LoginPage implements OnInit {
     this.createReminder()
     this.auth.password=this.password
     this.auth.email=this.email
+    this.storage.create().then(() => {
+      console.log('Base de datos creada');
+      this.storage.set('client_email', this.email);
+    }).catch(error => {
+      console.error('Error al crear la base de datos', error);
+    });
     console.log(this.auth)
     if(this.auth.password == '' || this.auth.email=='' ){
       this.validAuth=false
@@ -306,8 +313,9 @@ export class LoginPage implements OnInit {
      console.log(this._hubConnection)
      this._hubConnection.on('BroadcastMessage', (message:any)=>{
        this.signaldata.push(message);
-       if (this.email === message.information){
-        console.log("Notificacion de Emergencia!!!!")
+       console.log(message);
+       if (this.email === message.email_rx){
+        console.log("crea notificacion!")
        }
        this.showimage=true;
      })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { MessageServiceService } from '../../services/message-service.service';
 
 @Component({
   selector: 'app-emergency-list',
@@ -9,12 +10,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class EmergencyListComponent  implements OnInit {
   clients: any[] = [];
+  messagenotify: string = '';
   constructor(
     private router:Router, 
     private authService:AuthService,
+    private messageService: MessageServiceService
   ) { }
 
   ngOnInit() {
+    this.messageService.message$.subscribe((message) => {
+      console.log('Mensaje recibido en EmergencyListComponent:', message);
+        this.messagenotify = message
+    });
     this.authService.getClients().subscribe((res:any)=>{
       console.log(res)
       for (let i = 0; i < res.length; i++) {
