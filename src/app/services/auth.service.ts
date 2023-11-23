@@ -52,6 +52,10 @@ export class AuthService {
     return this.http.get(this.url+'Admins');
   }
 
+  getSession(model: any){
+    return this.http.post(this.url + 'GetSession', model);
+  }
+
   postSMSNotification(model: any){
     return this.http.post(this.url + 'GetNotifications', model);
   }

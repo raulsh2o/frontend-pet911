@@ -290,6 +290,22 @@ export class LoginPage implements OnInit {
        this.signaldata.push(message);
        this.showimage=true;
      })   */
+     //get session
+     var getsession={
+      email:this.email
+    }
+     this.authService.getSession(getsession).subscribe((res:any)=>{
+      localStorage.setItem('session',res.id)
+      console.log('get session')
+      console.log(res)
+      console.log('------------')
+      if (res != ''){
+        this.authService.deleteSession(res).subscribe((res:any)=>{
+          localStorage.setItem('session',res.id)
+        })
+      }
+    })
+     //create connection
     this._hubConnection = new HubConnectionBuilder().withUrl('http://localhost:5215/notify').build();
     this._hubConnection.start()
     .then(()=>{
