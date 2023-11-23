@@ -136,13 +136,13 @@ export class LoginPage implements OnInit {
     this.createReminder()
     this.auth.password=this.password
     this.auth.email=this.email
-/*     this.storage.create().then(() => {
+    this.storage.create().then(() => {
       console.log('Base de datos creada');
       this.storage.set('client_email', this.email);
     }).catch(error => {
       console.error('Error al crear la base de datos', error);
     });
-    console.log(this.auth) */
+    console.log(this.auth)
     if(this.auth.password == '' || this.auth.email=='' ){
       this.validAuth=false
       console.log('Llene todos los campos')
