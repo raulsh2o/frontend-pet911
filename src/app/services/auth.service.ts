@@ -60,6 +60,9 @@ export class AuthService {
     return this.http.post(this.url + 'Notification', model);
   }
 
+  postNotifyConfirm(model: any) {
+    return this.http.post(this.url + 'ConfirfNotification', model);
+  }
   //Methods for sending notifications
   
   postSession(model:any){

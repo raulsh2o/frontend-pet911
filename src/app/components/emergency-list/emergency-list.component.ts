@@ -10,6 +10,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./emergency-list.component.scss'],
 })
 export class EmergencyListComponent  implements OnInit {
+  aux_email: string = '';
   clients: any[] = [];
   constructor(
     private router:Router, 
@@ -23,6 +24,7 @@ export class EmergencyListComponent  implements OnInit {
       console.log('Base de datos creada');
       this.storage.get('client_email').then((value) => {
         console.log('Valor recuperado:', value);
+        this.aux_email = value;
         const model = { 
           Email_rx: value,
           Email_tx: ''
@@ -51,7 +53,15 @@ export class EmergencyListComponent  implements OnInit {
     this.router.navigate([`/`]);
   }
 
-  notify(){
+  notify(correo: string){
+    console.log(this.aux_email, correo);
+    const model = { 
+      Email_rx: correo,
+      Email_tx: this.aux_email
+    };
+    this.authService.postNotifyConfirm(model).subscribe((res:any)=>{
+      console.log(res)
+    })
   }
 
 }
