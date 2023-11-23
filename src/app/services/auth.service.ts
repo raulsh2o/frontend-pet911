@@ -77,6 +77,10 @@ export class AuthService {
     
     return this.http.delete(this.url+'Session/'+id)
   }
+  deleteNotification(id:any){
+    
+    return this.http.delete(this.url+'Notification/'+id)
+  }
   postMessage(id:any){
     return this.http.get(this.url+'Mesa/'+id)
   }

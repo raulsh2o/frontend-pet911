@@ -33,8 +33,9 @@ export class EmergencyListComponent  implements OnInit {
           console.log(res[0])
           for (var i=0; i<res.length; i++){
             var admin = {
+              id: res[i].Id,
               nombre: 'Cliente', // Puedes mantener un nombre genérico
-              correo: res[i],
+              correo: res[i].Email_tx,
               mensaje: 'mensaje de emergencia!', // Puedes mantener una edad genérica
               imagen: '../../../assets/pruebas/gatoAzul.jpg' // Puedes mantener una imagen genérica
             }
@@ -53,8 +54,10 @@ export class EmergencyListComponent  implements OnInit {
     this.router.navigate([`/`]);
   }
 
-  notify(correo: string){
-    console.log(this.aux_email, correo);
+  notify(correo: string, id: string){
+    this.authService.deleteNotification(id).subscribe((res:any)=>{
+      localStorage.setItem('session',res.id)
+    })
     const model = { 
       Email_rx: correo,
       Email_tx: this.aux_email
