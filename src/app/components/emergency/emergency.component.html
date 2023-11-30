@@ -1,0 +1,25 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a (click)="back()" style="margin-left: 27px;" > < Ir atrás</a> 
+      <h1>Tus mascotas</h1>
+      <a style="margin-right: 33px;" href="configuration"> Ajustes </a>
+    </div>
+    <div class="div-list">
+      <div class="div-square" *ngFor="let mascota of mascotas">
+        <div style="display: flex; align-items: center;">
+          <img [src]="mascota.imagen" alt="">
+          <div>
+            <h4>{{ mascota.nombre }}</h4>
+            <p>{{ mascota.correo }}</p>
+          </div>
+        </div>
+        <h5 (click)="notify(mascota.correo)"> Notificar! ></h5>
+      </div>
+    </div>    
+  </div>
+</ion-content>
+<ion-footer >
+  <app-footer></app-footer>
+  </ion-footer>
+ 

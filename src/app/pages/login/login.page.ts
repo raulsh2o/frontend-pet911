@@ -1,6 +1,6 @@
 import { Component, OnInit,Input,NgZone } from '@angular/core';
 
-//import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
+import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { ApiService } from 'src/app/services/api.service';
 import { ActivatedRoute,Router } from '@angular/router';
 
@@ -8,6 +8,8 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 //import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { isPlatform } from '@ionic/angular';
+import { NotificationsService } from '../../services/notifications.service';
+import { Storage } from '@ionic/storage';
 var emails: { email: any; int: number; }[]=[]
 declare const FB: any;
 
@@ -17,7 +19,7 @@ declare const FB: any;
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
- // private _hubConnection: HubConnection | any;
+  private _hubConnection: HubConnection | any;
   showimage: boolean=false;
   signaldata: any[]=[];
   
@@ -44,7 +46,7 @@ export class LoginPage implements OnInit {
     password:''
   }
   lista:any
-  constructor(private service:ApiService,private router:Router,private _ngZone:NgZone,private authService:AuthService) { 
+  constructor(private service:ApiService,private router:Router,private _ngZone:NgZone,private authService:AuthService, private notification:NotificationsService, private storage: Storage) { 
     if(!isPlatform('capacitor')){
     //  GoogleAuth.initialize()
     }
@@ -131,8 +133,15 @@ export class LoginPage implements OnInit {
 // }
 
   login(){
+    this.createReminder()
     this.auth.password=this.password
     this.auth.email=this.email
+    this.storage.create().then(() => {
+      console.log('Base de datos creada');
+      this.storage.set('client_email', this.email);
+    }).catch(error => {
+      console.error('Error al crear la base de datos', error);
+    });
     console.log(this.auth)
     if(this.auth.password == '' || this.auth.email=='' ){
       this.validAuth=false
@@ -165,7 +174,7 @@ export class LoginPage implements OnInit {
                 console.log('No mas emails')
               }
             }
-          //  this.initSesion()
+            this.initSesion()
             console.log(res.rol)
             if(res.rol=="Admin"){
               
@@ -183,6 +192,17 @@ export class LoginPage implements OnInit {
     }
    
   }
+  createReminder(): void {
+    console.log('Entró en las notificaciones');
+    const now = new Date();
+    const secondsLater = new Date(now.getTime() + 2000); // Añade 2000 milisegundos (2 segundos) al tiempo actual
+    
+    this.notification.showLocalNotification(
+      'Hola',
+      'Raul',
+      secondsLater // Usa la hora actual más 2 segundos
+    );
+  }
   togglePassword() {
     this.showPassword = !this.showPassword;
   }
@@ -190,9 +210,9 @@ export class LoginPage implements OnInit {
     
     this.router.navigate([`/start`])
   }
-  initSesion(){
+/*   initSesion(){
 
-  }
+  } */
   emailChange(event:any){
     this.validCor=true
     this.validPas=true
@@ -242,35 +262,76 @@ export class LoginPage implements OnInit {
       this.message = '';
     }, 5000);
   }
-  // initSesion(){
-  //   this._hubConnection = new HubConnectionBuilder().withUrl('https://localhost:7001/notify').build();
-  //   this._hubConnection.start()
-  //   .then(()=>{
-  //     this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>{
-  //      var session={
-  //         id: ConnectionId,
-  //         email:this.email
-  //       }
-  //       // this.service.postSession(session).subscribe((res:any)=>{
+    initSesion(){
+/*      this._hubConnection = new HubConnectionBuilder().withUrl('https://localhost:7001/notify').build();
+     this._hubConnection.start()
+      .then(()=>{
+       this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>{
+        var session={
+           id: ConnectionId,
+           email:this.email
+         }
+          this.authService.postSession(session).subscribe((res:any)=>{
           
-  //       //   localStorage.setItem('session',res.id)
-  //       //   console.log(res)
-  //       // })
-  //       console.log(ConnectionId,'ahfsdtagshdgjsah')
-  //     }
-  //     )
+            localStorage.setItem('session',res.id)
+            console.log(res)
+          })
+         console.log(ConnectionId,'ahfsdtagshdgjsah')
+       }
+       )
       
-  //   },
-  //   console.log('connection start'))
-  //   .catch((err:any)=>{
-  //     console.log('Error while establishing the connection')
-  //   });
-  //   console.log(this._hubConnection)
-  //   this._hubConnection.on('BroadcastMessage', (message:any)=>{
-  //     this.signaldata.push(message);
-  //     this.showimage=true;
-  //   })
-
-  // }
+     },
+     console.log('connection start'))
+     .catch((err:any)=>{
+       console.log('Error while establishing the connection')
+     });
+     console.log(this._hubConnection)
+     this._hubConnection.on('BroadcastMessage', (message:any)=>{
+       this.signaldata.push(message);
+       this.showimage=true;
+     })   */
+     //get session
+     var getsession={
+      email:this.email
+    }
+     this.authService.getSession(getsession).subscribe((res:any)=>{
+      localStorage.setItem('session',res.id)
+       if (res != ''){
+        this.authService.deleteSession(res).subscribe((res:any)=>{
+          localStorage.setItem('session',res.id)
+          })
+        } 
+    })
+     //create connection
+    this._hubConnection = new HubConnectionBuilder().withUrl('http://localhost:5215/notify').build();
+    this._hubConnection.start()
+    .then(()=>{
+       this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>{
+        var session={
+          id: ConnectionId,
+          email:this.email
+        }
+         this.authService.postSession(session).subscribe((res:any)=>{
+         
+           localStorage.setItem('session',res.id)
+           console.log(res)
+         })
+        console.log(ConnectionId,'ahfsdtagshdgjsah')
+      })
+     },
+     console.log('connection start'))
+     .catch((err: any) => {
+      console.error('Error de conexión:', err);
+    });
+     console.log(this._hubConnection)
+     this._hubConnection.on('BroadcastMessage', (message:any)=>{
+       this.signaldata.push(message);
+       console.log(message);
+       if (this.email === message.email_rx){
+        console.log("crea notificacion!")
+       }
+       this.showimage=true;
+     })
+   }
 
 }

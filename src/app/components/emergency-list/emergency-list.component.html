@@ -1,0 +1,23 @@
+<ion-content >
+  <div class="div-cont">
+    <div class="div-top">
+      <a (click)="back()" style="margin-left: 27px;" > < Ir atrás</a> 
+      <h1>Notificaciones</h1>
+      <a style="margin-right: 33px;" href="configuration"> Ajustes </a>
+    </div>
+    <div class="div-list">
+      <div class="div-square" *ngFor="let client of clients">
+        <div style="display: flex; align-items: center;">
+          <img [src]="client.imagen" alt="">
+          <div>
+            <h4>{{ client.nombre }}</h4>
+            <p>{{ client.correo }}</p>
+            <p>{{ client.mensaje }}</p>
+          </div>
+        </div>
+        <h5 (click)="notify(client.correo, client.id)"> Confirmar! ></h5>
+      </div>
+    </div>    
+  </div>
+</ion-content>
+ 

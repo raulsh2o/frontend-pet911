@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-//import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
+import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { ActivatedRoute,Router } from '@angular/router';
 
 import { ApiService } from '../../services/api.service';
@@ -18,7 +18,7 @@ export class ClientStartComponent  implements OnInit {
   {name:'perro2',service:'clinica1',state:"En espera"},
   {name:'perro3',service:'peluqeuria2',state:"Listo pararetirar"},]
 
- // private _hubConnection: HubConnection | any;
+ private _hubConnection: HubConnection | any;
   showimage: boolean=false;
   signaldata: any[]=[];
 pets:any
@@ -26,7 +26,11 @@ token:any
 user:any
 name:string=''
 mesage:any
-  constructor(private router:Router,private service:ApiService,private activatedRoute:ActivatedRoute) { }
+  constructor(
+    private router:Router,
+    private service:ApiService,
+    private activatedRoute:ActivatedRoute
+    ) { }
 
   ngOnInit() {
     
@@ -34,25 +38,25 @@ mesage:any
     this.user = JSON.parse(this.token)
     this.name="Juan"
     this.service.getPetByUser(this.user.idUser).subscribe((res:any)=>{
-    this.pets=res
-    console.log(this.pets)
-    // this._hubConnection = new HubConnectionBuilder().withUrl('https://localhost:7001/notify').build();
-    // this._hubConnection.start()
-    // .then(()=>{
-    //   this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>
-    //   console.log(ConnectionId,'hasfdgasfdhag'))
-    // },
-    // console.log('connection start'))
-    // .catch((err:any)=>{
-    //   console.log('Error while establishing the connection')
-    // });
-    // console.log(this._hubConnection)
-    // this._hubConnection.on('BroadcastMessage', (message:any)=>{
-    //   this.signaldata.push(message);
-    //   console.log(message)
-    //   this.showimage=true;
-    // })
-  })
+      this.pets=res
+      console.log(this.pets)
+    })
+/*     this._hubConnection = new HubConnectionBuilder().withUrl('http://localhost:5215/notify').build();
+    this._hubConnection.start()
+    .then(()=>{
+       this._hubConnection.invoke('GetConnectionId').then((ConnectionId:any)=>
+       console.log(ConnectionId,'hasfdgasfdhag'))
+     },
+     console.log('connection start'))
+     .catch((err: any) => {
+      console.error('Error de conexión:', err);
+    });
+     console.log(this._hubConnection)
+     this._hubConnection.on('BroadcastMessage', (message:any)=>{
+       this.signaldata.push(message);
+       console.log(message)
+       this.showimage=true;
+     }) */
   }
   emergency(){
     this.router.navigate([`/mapa`])

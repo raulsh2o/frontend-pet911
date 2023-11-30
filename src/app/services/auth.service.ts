@@ -48,8 +48,25 @@ export class AuthService {
     return this.http.post(this.url+'api/NotifyToken/',model)
   }
 
+  getAdmins(){
+    return this.http.get(this.url+'Admins');
+  }
 
+  getSession(model: any){
+    return this.http.post(this.url + 'GetSession', model);
+  }
 
+  postSMSNotification(model: any){
+    return this.http.post(this.url + 'GetNotifications', model);
+  }
+
+  postNotify(model: any) {
+    return this.http.post(this.url + 'Notification', model);
+  }
+
+  postNotifyConfirm(model: any) {
+    return this.http.post(this.url + 'ConfirfNotification', model);
+  }
   //Methods for sending notifications
   
   postSession(model:any){
@@ -59,6 +76,10 @@ export class AuthService {
   deleteSession(id:any){
     
     return this.http.delete(this.url+'Session/'+id)
+  }
+  deleteNotification(id:any){
+    
+    return this.http.delete(this.url+'Notification/'+id)
   }
   postMessage(id:any){
     return this.http.get(this.url+'Mesa/'+id)

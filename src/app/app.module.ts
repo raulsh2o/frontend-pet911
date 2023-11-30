@@ -33,10 +33,12 @@ import { EditSchedulesModule } from './components/edit-schedules/edit-schedulles
 import { ConfigurationModule } from './components/configuration/configuration.module';
 import { SelectServiceModule } from './components/select-service/select-service.module';
 import { ReviewModule } from './components/review/review.module';
+import { EmergencyModule } from './components/emergency/emergency.module';
+import {EmergencyListModule} from './components/emergency-list/emergency_list.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FileUploadModule,HttpClientModule,AdoptCarrouselModule,AdoptInfoModule,AssociatedStartModule,ClientStartModule,HistoryModule,MapComponentModule,ServiceInfoModule,ServiceListModule,MenuModule,AllpetsModule,PetInfoModule,AssociateListModule,AssociateManagerModule,QrInfoModule,QrListModule,CreteEditPetModule,CreteEditQrModule,UseTermsModule,SupportModule,AssociateSchedulesModule,ActivateTwofaModule,EditSchedulesModule,ConfigurationModule,SelectServiceModule,ReviewModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FileUploadModule,HttpClientModule,AdoptCarrouselModule,AdoptInfoModule,AssociatedStartModule,ClientStartModule,HistoryModule,MapComponentModule,ServiceInfoModule,ServiceListModule,MenuModule,AllpetsModule,PetInfoModule,AssociateListModule,AssociateManagerModule,QrInfoModule,QrListModule,CreteEditPetModule,CreteEditQrModule,UseTermsModule,SupportModule,AssociateSchedulesModule,ActivateTwofaModule,EditSchedulesModule,ConfigurationModule,SelectServiceModule,ReviewModule, EmergencyModule, EmergencyListModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
