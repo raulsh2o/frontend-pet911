@@ -61,6 +61,9 @@ mesage:any
   emergency(){
     this.router.navigate([`/mapa`])
   }
+  menu(){
+    this.router.navigate([`/menu`])
+  }
   services(){
     
     this.router.navigate([`service-list`])
