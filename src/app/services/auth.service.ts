@@ -72,6 +72,9 @@ export class AuthService {
   postSession(model:any){
     return this.http.post(this.url+'Session',model)
   }
+  postTos(model:any){
+    return this.http.post(this.url+'aceptTos',model)
+  }
 
   deleteSession(id:any){
     

@@ -105,7 +105,7 @@ export class RegisterPage implements OnInit {
                 this.service.postNoti(tokenModel).subscribe((res:any)=>{
                   console.log("Se registro el token")
                 })
-                this.router.navigate([`/start`])
+                this.router.navigate([`/terms`])
                 console.log('Se ha registrado correctamente')
               }
             })

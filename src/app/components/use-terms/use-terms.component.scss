@@ -56,4 +56,25 @@ text-decoration: none;
         font-weight: 400;
         line-height: normal;
     }
+    button{
+        margin-top: 34.5px;
+        display: flex;
+        width: 325px;
+        height: 37px;
+        padding: 13px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        border-radius: 10px;
+background: var(--primary-1, #E0735C);
+color: var(--label-color-dark-primary, #FFF);
+text-align: center;
+font-family: 'SF Pro';
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 22px; /* 157.143% */
+letter-spacing: -0.408px;
+    }
 }
