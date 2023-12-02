@@ -1,7 +1,8 @@
 <ion-content >
   <div class="div-cont">
     <div class="div-top">
-      <a style="margin-left: 27px;margin-right: 54px;" href="/header"> < Ir atrás</a> 
+      <a *ngIf="associate" style="margin-left: 27px;margin-right: 54px;" href="/home"> < Ir atrás</a> 
+      <a *ngIf="!associate" style="margin-left: 27px;margin-right: 54px;" href="/client-start"> < Ir atrás</a> 
       <h1>Menú</h1>
     </div>
     <div class="div-user">
@@ -12,7 +13,7 @@
       <div>
         <div style="display: flex;align-items: center;">
           <h3 >Nombre</h3>
-          <label *ngIf="associate" >Asociado</label>
+          <label *ngIf="associate"  c >Asociado</label>
         </div>
         <p >correo</p>
       </div>
@@ -32,7 +33,7 @@
             <img class="icon" src="../../../assets/icon/userIcons/Configuration.png" alt="">
             <p>Configuración</p>
           </div>
-          <img class="next" (click)="next('register')" src="../../../assets/icon/userIcons/Next.png" alt="">
+          <img class="next" (click)="next('configuration')" src="../../../assets/icon/userIcons/Next.png" alt="">
         </div>
         <div *ngIf="associate" class="div-square">
           <div style="display: flex;align-items: center;">
@@ -59,14 +60,14 @@
             <img class="icon" src="../../../assets/icon/userIcons/Support.png" alt="">
             <p>Soporte</p>
           </div>
-          <img class="next" (click)="next('adopt-info')" src="../../../assets/icon/userIcons/Next.png" alt="">
+          <img class="next" (click)="next('support')" src="../../../assets/icon/userIcons/Next.png" alt="">
         </div>
         <div class="div-square">
           <div style="display: flex;align-items: center;">
             <img class="icon" src="../../../assets/icon/userIcons/ServiceTerms.png" alt="">
             <p>Términos de servicio</p>
           </div>
-          <img class="next" (click)="next('history')" src="../../../assets/icon/userIcons/Next.png" alt="">
+          <img class="next" (click)="next('terms')" src="../../../assets/icon/userIcons/Next.png" alt="">
         </div>
         
       </div>
