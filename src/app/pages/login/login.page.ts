@@ -329,6 +329,7 @@ export class LoginPage implements OnInit {
        console.log(message);
        if (this.email === message.email_rx){
         console.log("crea notificacion!")
+        this.createReminder()
        }
        this.showimage=true;
      })
