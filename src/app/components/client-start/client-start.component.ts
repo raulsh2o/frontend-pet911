@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ElementRef, ViewChild   } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { ActivatedRoute,Router } from '@angular/router';
-
 import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-client-start',
@@ -41,6 +39,9 @@ mesage:any
       this.pets=res
       console.log(this.pets)
     })
+/*     this.service.getServices().subscribe((res:any)=>{
+      console.log(res[0])
+    }) */
 /*     this._hubConnection = new HubConnectionBuilder().withUrl('http://localhost:5215/notify').build();
     this._hubConnection.start()
     .then(()=>{
@@ -64,9 +65,9 @@ mesage:any
   menu(){
     this.router.navigate([`/menu`])
   }
-  services(){
-    
-    this.router.navigate([`service-list`])
+  services(tipo: string){
+    console.log('Tipo de servicio:', tipo);
+    this.router.navigate([`service-list`, { tipoServicio: tipo }])
   }
   aport(){
     this.router.navigate([`/qr-list`])

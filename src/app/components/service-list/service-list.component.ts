@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import {ActivatedRoute, Router } from '@angular/router';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { ApiService } from '../../services/api.service';
 
@@ -32,13 +31,19 @@ export class ServiceListComponent  implements OnInit {
   services=this.items
   results= this.items
   patrocinado=false
-  constructor(private service:ApiService,private router:Router) { }
+  tipoServicio= ""
+  constructor(private service:ApiService,private router:Router, private route: ActivatedRoute) { }
 
 
   ngOnInit() {
     this.results=this.listPatron(this.items)
     // this.generateItems()
      try{
+      this.route.params.subscribe(params => {
+        this.tipoServicio = params['tipoServicio']; // Asignación del valor a tipoServicio
+        console.log('Tipo de servicio recibido en service-list:', this.tipoServicio);
+        // Usa el tipoServicio como lo necesites en esta página
+      });
        this.service.getServices().subscribe((res:any)=>{
          this.services=res
          this.results=res

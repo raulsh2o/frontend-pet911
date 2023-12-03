@@ -83,7 +83,7 @@
         <div *ngIf="results!=null" style="overflow: auto;height: 500px; " >
           
             <div style="margin-bottom: 10px;" *ngFor="let service of results;let index"  >
-              <ion-card >
+              <ion-card *ngIf="service.type === tipoServicio">
                 
                 <ion-card-content style="padding-top: 0px;" > 
                   <div style="display: grid;

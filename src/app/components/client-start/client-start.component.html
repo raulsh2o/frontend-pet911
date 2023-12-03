@@ -31,7 +31,7 @@
           
         <div style="width: 100%;display: flex;" >
           <div style="width: 100% ;max-width: 271px;margin-left: 27px;">
-            <ion-searchbar (click)="services()" style="padding-left: 0px;padding-right: 0px;height: 40px;" showCancelButton="focus" class="custom" placeholder="Peluquerias cerca de mi"></ion-searchbar>
+            <ion-searchbar (click)="services('all')" style="padding-left: 0px;padding-right: 0px;height: 40px;" showCancelButton="focus" class="custom" placeholder="Peluquerias cerca de mi"></ion-searchbar>
           </div>
           <div style=" display: flex; align-items: center;margin-left: 18px;">
             <button (click)="aport()" class="button">
@@ -42,47 +42,70 @@
          
         </div>
         </div>
-      <div style="display: flex; width: 100%;max-width: 350px;
+<!--         <swiper-container 
+        (slidechange)="swiperSlideChanged($event)"
+        [loop]="true"
+        [pagination]="true"
+        style="display: flex; width: 100%;max-width: 350px;
+      max-height: 88px;margin-bottom: 22px;margin-left: 30px;margin-top: 17px;"
+      >
+        <swiper-slide class="square-button">
+          <img style="width: 43px; height: 43px;" src="../../../assets/icon/logos/Peluquería.png" alt="">
+            <p style="margin-top: 10px;">Peluquerias</p>
+        </swiper-slide>
+        <swiper-slide class="square-button">
+          <img style="width: 57px;height: 57px;" src="../../../assets/icon/logos/Petshop.png" alt="">
+            <p >Petshops</p>
+        </swiper-slide>
+        <swiper-slide class="square-button">
+          <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px; width: 91px;" >Veterinarias</p>
+        </swiper-slide>
+        <swiper-slide class="square-button">
+          <img style="width: 43px; height: 43px;" src="../../../assets/icon/logos/Peluquería.png" alt="">
+            <p style="margin-top: 10px;">Peluquerias</p>
+        </swiper-slide>
+        <swiper-slide class="square-button">
+          <img style="width: 57px;height: 57px;" src="../../../assets/icon/logos/Petshop.png" alt="">
+            <p >Petshops</p>
+        </swiper-slide>
+        <swiper-slide class="square-button">
+          <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px; width: 91px;" >Veterinarias</p>
+        </swiper-slide>
+        <swiper-slide class="square-button">
+          <img style="width: 43px; height: 43px;" src="../../../assets/icon/logos/Peluquería.png" alt="">
+            <p style="margin-top: 10px;">Peluquerias</p>
+        </swiper-slide>
+        <swiper-slide class="square-button">
+          <img style="width: 57px;height: 57px;" src="../../../assets/icon/logos/Petshop.png" alt="">
+            <p >Petshops</p>
+        </swiper-slide>
+        <swiper-slide class="square-button">
+          <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
+            <p style="margin-top: 10px; width: 91px;" >Veterinarias</p>
+        </swiper-slide>
+      </swiper-container> -->
+
+        
+      <div class="carousel-container" style="display: flex; width: 100%;max-width: 350px;
       max-height: 88px;margin-bottom: 22px;margin-left: 30px;margin-top: 17px;">
         <div class="lista-imagenes">
-          <div class="square-button">
+          <div (click)="services('peluqueria')" class="square-button">
             <img style="width: 43px; height: 43px;" src="../../../assets/icon/logos/Peluquería.png" alt="">
             <p style="margin-top: 10px;">Peluquerias</p>
           </div>
-          <div  class="square-button">
+          <div  (click)="services('petshop')" class="square-button">
             <img style="width: 57px;height: 57px;" src="../../../assets/icon/logos/Petshop.png" alt="">
             <p >Petshops</p>
             
           </div>    
           
-          <div (click)="services()" class="square-button">
+          <div (click)="services('veterinaria')" class="square-button">
             <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
             <p style="margin-top: 10px; width: 91px;" >Veterinarias</p>
           </div>
-          <div (click)="services()" class="square-button">
-            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
-            <p style="margin-top: 10px;" >Veterinarias</p>
-          </div>
-          <div (click)="services()" class="square-button">
-            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
-            <p style="margin-top: 10px;" >Veterinarias</p>
-          </div>
-          <div (click)="services()" class="square-button">
-            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
-            <p style="margin-top: 10px;" >Veterinarias</p>
-          </div>
-          <div (click)="services()" class="square-button">
-            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
-            <p style="margin-top: 10px;" >Veterinarias</p>
-          </div>
-          <div (click)="services()" class="square-button">
-            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
-            <p style="margin-top: 10px;" >Veterinarias</p>
-          </div>
-          <div (click)="services()" class="square-button">
-            <img style="width: 44px; height: 44px;" src="../../../assets/icon/logos/Veterinaria.png" alt="">
-            <p style="margin-top: 10px;" >Veterinarias</p>
-          </div>
+      
         </div>
      
         
