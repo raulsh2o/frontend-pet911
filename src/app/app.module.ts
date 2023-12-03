@@ -35,6 +35,7 @@ import { SelectServiceModule } from './components/select-service/select-service.
 import { ReviewModule } from './components/review/review.module';
 import { EmergencyModule } from './components/emergency/emergency.module';
 import {EmergencyListModule} from './components/emergency-list/emergency_list.module';
+import { ViewTOSModule } from './components/view-tos/view-tos.module';
 
 @NgModule({
   declarations: [AppComponent],

@@ -29,6 +29,7 @@ import { AssociateManagerComponent } from './components/associate-manager/associ
 import { ReviewComponent } from './components/review/review.component';
 import { EmergencyComponent} from './components/emergency/emergency.component';
 import {EmergencyListComponent} from './components/emergency-list/emergency-list.component';
+import {ViewTosComponent} from './components/view-tos/view-tos.component';
 
 const routes: Routes = [
   {
@@ -147,6 +148,9 @@ const routes: Routes = [
   {
     path:'emergency_list', component:EmergencyListComponent
   },
+  {
+    path:'view-tos', component:ViewTosComponent
+  }
 ];
 
 @NgModule({
