@@ -8,9 +8,7 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./client-start.component.scss'],
 })
 export class ClientStartComponent  implements OnInit {
-  items=[{name:'perro1',age:'5 anios',allergies:"no tiene"},
-  {name:'perro2',age:'3 anios',allergies:"si tiene"},
-  {name:'perro3',age:'2 anios',allergies:"pescado"}]
+  pets: any[] = [];
 
   espera=[{name:'perro1',service:'peluqeuria1',state:"Listo"},
   {name:'perro2',service:'clinica1',state:"En espera"},
@@ -19,7 +17,6 @@ export class ClientStartComponent  implements OnInit {
  private _hubConnection: HubConnection | any;
   showimage: boolean=false;
   signaldata: any[]=[];
-pets:any
 token:any
 user:any
 name:string=''
@@ -36,8 +33,16 @@ mesage:any
     this.user = JSON.parse(this.token)
     this.name="Juan"
     this.service.getPetByUser(this.user.idUser).subscribe((res:any)=>{
-      this.pets=res
-      console.log(this.pets)
+      for (var i=0; i<res.length; i++){
+        var pet = {
+          name: res[i].name,
+          age: res[i].age,
+          race: res[i].race,
+          sex: res[i].sex,
+          allergies: res[i].allergies
+        }
+        this.pets.push(pet);
+      }
     })
 /*     this.service.getServices().subscribe((res:any)=>{
       console.log(res[0])
