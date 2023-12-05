@@ -15,13 +15,14 @@ export class AllpetsComponent implements OnInit {
     private service:ApiService,
     private activatedRoute:ActivatedRoute) {}
     
-
-  ngOnInit() {
+/*   ngAfterViewInit() {
     this.token= localStorage.getItem('token')
     this.user = JSON.parse(this.token)
     this.service.getPetByUser(this.user.idUser).subscribe((res:any)=>{
+      console.log(res[0])
       for (var i=0; i<res.length; i++){
         var pet = {
+          id: res[i].id,
           name: res[i].name,
           age: res[i].age,
           race: res[i].race,
@@ -31,13 +32,34 @@ export class AllpetsComponent implements OnInit {
         this.pets.push(pet);
       }
     })
+  } */
+
+  ngOnInit() {
+    
+    this.token= localStorage.getItem('token')
+    this.user = JSON.parse(this.token)
+    this.service.getPetByUser(this.user.idUser).subscribe((res:any)=>{
+      console.log(res[0])
+      for (var i=0; i<res.length; i++){
+        var pet = {
+          id: res[i].id,
+          name: res[i].name,
+          age: res[i].age,
+          race: res[i].race,
+          sex: res[i].sex,
+          allergies: res[i].allergies
+        }
+        this.pets.push(pet);
+      }
+    }) 
   }
 
   back() {
     this.router.navigate([`client-start`]);
   }
-  editpet(){
+  editpet(petId: string){
     
-    this.router.navigate([`/create-pet`])
+    this.router.navigate([`/create-pet`, { tipoServicio: 'update', petId: petId}])
+
   }
 }

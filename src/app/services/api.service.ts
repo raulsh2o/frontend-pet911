@@ -13,6 +13,9 @@ export class ApiService {
   getPets(){
     return this.http.get<any[]>(this.url+'api/Pet')
   }
+  putPets(model:any, id:any){
+    return this.http.put(this.url+'api/Pet/'+id,model)
+  }
   postPet(model:any){
     return this.http.post(this.url+'api/Pet',model)
   }

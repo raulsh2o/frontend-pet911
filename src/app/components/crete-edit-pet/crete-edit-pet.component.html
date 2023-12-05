@@ -81,8 +81,10 @@
         
         <div style="display: flex; align-items: center; margin-top: 17px;">
           <button style="margin-right: 12px;" class="back" (click)="back('optional')" >Anterior</button>
-          <button style="width: 215px;
+          <button *ngIf="tipoServicio != 'update'" style="width: 215px;
           height: 37px; " class="next" (click)="continue('end', name, age, sex, race, allergies)">Añadir la mascota</button>
+          <button *ngIf="tipoServicio === 'update'" style="width: 215px;
+          height: 37px; " class="next" (click)="update(name, age, sex, race, allergies)">Actualizar la mascota</button>
         </div>
       </div>
       

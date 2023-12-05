@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { ApiService } from '../../services/api.service';
 @Component({
@@ -22,9 +22,16 @@ export class CreteEditPetComponent  implements OnInit {
   sex=''
   allergies=''
   race=''
-  constructor(private router:Router, private storage:Storage, private service:ApiService) { }
+  tipoServicio= ""
+  petId=''
+  constructor(private router:Router, private storage:Storage, private service:ApiService, private route: ActivatedRoute) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.tipoServicio = params['tipoServicio']; // Asignación del valor a tipoServicio
+      this.petId = params['petId'];
+    });
+  }
   emergency(){
     this.router.navigate([`/mapa`])
   }
@@ -56,6 +63,33 @@ export class CreteEditPetComponent  implements OnInit {
     })
     console.log(initMonth,finalMonth)
   }
+  update(name:string, age:string, sex:string, race:string, allergies:string){
+    console.log('update')
+    console.log(this.petId)
+    this.storage.create().then(() => {
+      console.log('Base de datos creada');
+      this.storage.get('client_email').then((value) => {
+        console.log('Valor recuperado:', value);
+        var pet={
+          name:name,
+          age:age,
+          sex:sex,
+          race:race,
+          allergies:allergies,
+          email:value,
+        }
+        this.service.putPets(pet,this.petId).subscribe((res:any)=>{
+        })
+        
+        //this.router.navigate([`allpets`]);
+        
+      }).catch(error => {
+        console.error('Error al obtener client_email', error);
+      });
+    }).catch(error => {
+      console.error('Error al crear la base de datos', error);
+    });
+  }
   continue(option:string, name:string, age:string, sex:string, race:string, allergies:string){
     if(option=="photo"){
       this.first=false
@@ -71,11 +105,11 @@ export class CreteEditPetComponent  implements OnInit {
         this.storage.get('client_email').then((value) => {
           console.log('Valor recuperado:', value);
           var pet={
-            name:"sandy",
-            age:"1",
-            sex:"femen",
-            race:"no",
-            allergies:"no",
+            name:name,
+            age:age,
+            sex:sex,
+            race:race,
+            allergies:allergies,
             email:value,
           }
           this.service.postPet(pet).subscribe((res:any)=>{
