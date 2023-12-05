@@ -26,12 +26,12 @@
         </div>
        </div>
        <h5>¿Como se llama?</h5>
-       <input type="text" placeholder="Nombre">
+       <input [(ngModel)]="name" type="text" placeholder="Nombre">
        <h5>¿Cuántos años tiene?</h5>
-       <input type="text" placeholder="Selecciona un valor">
+       <input [(ngModel)]="age" type="text" placeholder="Selecciona un valor">
 
        <button style="width: 325px;
-       height: 37px;margin-top: 24px;" class="next" (click)="continue('photo')">Siguiente</button>
+       height: 37px;margin-top: 24px;" class="next" (click)="continue('photo', name, age, sex, race, allergies)">Siguiente</button>
       </div>
       <div *ngIf="second" class="div-photo">
         <div class="photo" >
@@ -43,7 +43,7 @@
 
           <button *ngIf="!send" class="buton-photo" style="background: white ;color: #E0735C;
           border: 1px solid #E0735C;width: 151px;" (click)="back('photo')">Anterior</button>
-          <button *ngIf="!send" class="buton-photo" style="background:#E0735C ;" (click)="continue('info')"><img src="../../../assets/icon/actions/Camera.png" alt="">Tomar foto</button>
+          <button *ngIf="!send" class="buton-photo" style="background:#E0735C ;" (click)="continue('info', name, age, sex, race, allergies)"><img src="../../../assets/icon/actions/Camera.png" alt="">Tomar foto</button>
 
           <button *ngIf="send" class="buton-photo" style="background: white ;color: #E0735C;
           border: 1px solid #E0735C;width: 151px;" (click)="back('photo')">
@@ -60,29 +60,29 @@
       <div *ngIf="third" class="div-about">
         <h1>Describe a tu mascota</h1>
         <h5>Altura</h5>
-        <input type="text" placeholder="En cm">
+        <input id="height" type="text" placeholder="En cm">
         <h5>Sexo</h5>
-        <input type="text" placeholder="Masculino/Femenino">
+        <input [(ngModel)]="sex" type="text" placeholder="Masculino/Femenino">
         <h5>Raza</h5>
-        <input type="text" placeholder="Escribe la raza">
+        <input [(ngModel)]="race" type="text" placeholder="Escribe la raza">
         <div style="display: flex; align-items: center; margin-top: 17px;">
           <button style="margin-right: 12px;" class="back" (click)="back('info')" >Anterior</button>
           <button style="width: 215px;
-          height: 37px; " class="next" (click)="continue('optional')">Siguiente</button>
+          height: 37px; " class="next" (click)="continue('optional', name, age, sex, race, allergies)">Siguiente</button>
         </div>
         
       </div>
       <div *ngIf="fourth" class="div-optional">
         <h1>¿Algún dato más?</h1>
         <h5>Alergias</h5>
-        <textarea type="text" placeholder="Fármacos, alimentos o materiales..."></textarea>
+        <textarea [(ngModel)]="allergies" type="text" placeholder="Fármacos, alimentos o materiales..."></textarea>
         <h5>Notas</h5>
         <textarea type="text"></textarea>
         
         <div style="display: flex; align-items: center; margin-top: 17px;">
           <button style="margin-right: 12px;" class="back" (click)="back('optional')" >Anterior</button>
           <button style="width: 215px;
-          height: 37px; " class="next" (click)="continue('end')">Añadir la mascota</button>
+          height: 37px; " class="next" (click)="continue('end', name, age, sex, race, allergies)">Añadir la mascota</button>
         </div>
       </div>
       

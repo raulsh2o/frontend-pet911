@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-crete-edit-pet',
   templateUrl: './crete-edit-pet.component.html',
@@ -15,7 +17,12 @@ export class CreteEditPetComponent  implements OnInit {
   third=false
   fourth=false
   send=false
-  constructor(private router:Router) { }
+  name=''
+  age=''
+  sex=''
+  allergies=''
+  race=''
+  constructor(private router:Router, private storage:Storage, private service:ApiService) { }
 
   ngOnInit() {}
   emergency(){
@@ -49,7 +56,7 @@ export class CreteEditPetComponent  implements OnInit {
     })
     console.log(initMonth,finalMonth)
   }
-  continue(option:string){
+  continue(option:string, name:string, age:string, sex:string, race:string, allergies:string){
     if(option=="photo"){
       this.first=false
       this.second=true
@@ -59,7 +66,28 @@ export class CreteEditPetComponent  implements OnInit {
       this.third=false
       this.fourth=true
     }else if(option=="end"){
-      console.log("Se envio")
+      this.storage.create().then(() => {
+        console.log('Base de datos creada');
+        this.storage.get('client_email').then((value) => {
+          console.log('Valor recuperado:', value);
+          var pet={
+            name:"sandy",
+            age:"1",
+            sex:"femen",
+            race:"no",
+            allergies:"no",
+            email:value,
+          }
+          this.service.postPet(pet).subscribe((res:any)=>{
+          })
+          this.router.navigate([`client-start`]);
+          
+        }).catch(error => {
+          console.error('Error al obtener client_email', error);
+        });
+      }).catch(error => {
+        console.error('Error al crear la base de datos', error);
+      });
     }
     
   
