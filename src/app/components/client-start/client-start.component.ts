@@ -31,7 +31,7 @@ mesage:any
     
     this.token= localStorage.getItem('token')
     this.user = JSON.parse(this.token)
-    this.name="Juan"
+    this.name=this.user.name;
     this.service.getPetByUser(this.user.idUser).subscribe((res:any)=>{
       for (var i=0; i<res.length; i++){
         var pet = {

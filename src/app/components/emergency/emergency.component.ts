@@ -45,7 +45,7 @@ export class EmergencyComponent  implements OnInit {
 
 
   back() {
-    this.router.navigate([`/`]);
+    this.router.navigate([`client-start`]);
   }
   notify(correo: string){
     const model = { 
