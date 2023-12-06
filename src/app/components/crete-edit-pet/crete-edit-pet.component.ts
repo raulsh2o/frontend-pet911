@@ -80,8 +80,9 @@ export class CreteEditPetComponent  implements OnInit {
         }
         this.service.putPets(pet,this.petId).subscribe((res:any)=>{
         })
-        
-        //this.router.navigate([`allpets`]);
+        setTimeout(() => {
+          this.router.navigate(['allpets']);
+        }, 1000);
         
       }).catch(error => {
         console.error('Error al obtener client_email', error);
