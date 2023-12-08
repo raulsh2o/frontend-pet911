@@ -10,12 +10,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { isPlatform } from '@ionic/angular';
 import { NotificationsService } from '../../services/notifications.service';
 import { Storage } from '@ionic/storage';
-import { Camera, CameraOptions, PictureSourceType } from '@awesome-cordova-plugins/camera/ngx';
-import { ImagePicker, ImagePickerOptions } from '@awesome-cordova-plugins/image-picker/ngx';
-import { Crop } from '@ionic-native/crop/ngx';
-import { ActionSheetController } from '@ionic/angular';
-import { File } from '@awesome-cordova-plugins/file/ngx';
-import { DomSanitizer } from '@angular/platform-browser';
 var emails: { email: any; int: number; }[]=[]
 declare const FB: any;
 
@@ -25,9 +19,6 @@ declare const FB: any;
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  imageurl: any;
-  securepath: any = window;
-  url: any;
   private _hubConnection: HubConnection | any;
   showimage: boolean=false;
   signaldata: any[]=[];
@@ -55,51 +46,10 @@ export class LoginPage implements OnInit {
     password:''
   }
   lista:any
-  constructor(private service:ApiService,private router:Router,private _ngZone:NgZone,private authService:AuthService, private notification:NotificationsService, private storage: Storage, private actionsheet: ActionSheetController, private camera: Camera, private file: File,
-    private imagepicker: ImagePicker, private crop: Crop, private domsanitize: DomSanitizer) { 
+  constructor(private service:ApiService,private router:Router,private _ngZone:NgZone,private authService:AuthService, private notification:NotificationsService, private storage: Storage) { 
     if(!isPlatform('capacitor')){
     //  GoogleAuth.initialize()
     }
-  }
-
-  chooseFromCamera(sourceType: PictureSourceType){
-    const options: CameraOptions = {
-       quality: 100,
-       mediaType: this.camera.MediaType.PICTURE,
-       destinationType: this.camera.DestinationType.FILE_URI,
-       encodingType: this.camera.EncodingType.JPEG,
-       sourceType: sourceType,
-    };
-
-    this.camera.getPicture(options).then((result) => {
-      console.log('Camera URL',result);
-      // this.imageurl = result;
-      this.imageurl = this.securepath.Ionic.WebView.convertFileSrc(result);
-    }, error=>{
-      console.log('Error CAMERA', error);
-    });
-  }
-  santizeUrl(imageUrl: string){
-    return this.domsanitize.bypassSecurityTrustUrl(imageUrl);
-  }
- async selectimageOptions(){
-    const actionsheet = await this.actionsheet.create({
-     header: 'Select image Source',
-     buttons: [
-       {
-         text: 'Select Camera',
-         handler: ()=>{
-           this.chooseFromCamera(this.camera.PictureSourceType.CAMERA);
-           console.log('Camera Selected');
-         }
-       },
-       {
-         text: 'Cancel',
-         role: 'cancel'
-       }
-     ]
-    });
-    await actionsheet.present();
   }
 
   async signIn(){

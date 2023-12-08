@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { ApiService } from '../../services/api.service';
+import { Camera, CameraOptions, PictureSourceType } from '@awesome-cordova-plugins/camera/ngx';
+import { ImagePicker, ImagePickerOptions } from '@awesome-cordova-plugins/image-picker/ngx';
+import { Crop } from '@ionic-native/crop/ngx';
+import { ActionSheetController } from '@ionic/angular';
+import { File } from '@awesome-cordova-plugins/file/ngx';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-crete-edit-pet',
   templateUrl: './crete-edit-pet.component.html',
@@ -24,13 +30,66 @@ export class CreteEditPetComponent  implements OnInit {
   race=''
   tipoServicio= ""
   petId=''
-  constructor(private router:Router, private storage:Storage, private service:ApiService, private route: ActivatedRoute) { }
+  imageurl: any;
+  securepath: any = window;
+  url: any;
+  constructor(
+    private router:Router, 
+    private storage:Storage, 
+    private service:ApiService, 
+    private route: ActivatedRoute, 
+    private actionsheet: ActionSheetController, 
+    private camera: Camera, 
+    private file: File,
+    private imagepicker: ImagePicker, 
+    private crop: Crop, 
+    private domsanitize: DomSanitizer
+    ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.tipoServicio = params['tipoServicio']; // Asignación del valor a tipoServicio
       this.petId = params['petId'];
     });
+  }
+  chooseFromCamera(sourceType: PictureSourceType){
+    const options: CameraOptions = {
+       quality: 100,
+       mediaType: this.camera.MediaType.PICTURE,
+       destinationType: this.camera.DestinationType.FILE_URI,
+       encodingType: this.camera.EncodingType.JPEG,
+       sourceType: sourceType,
+    };
+
+    this.camera.getPicture(options).then((result) => {
+      console.log('Camera URL',result);
+      // this.imageurl = result;
+      this.imageurl = this.securepath.Ionic.WebView.convertFileSrc(result);
+    }, error=>{
+      console.log('Error CAMERA', error);
+    });
+  }
+  santizeUrl(imageUrl: string){
+    return this.domsanitize.bypassSecurityTrustUrl(imageUrl);
+  }
+ async selectimageOptions(){
+    const actionsheet = await this.actionsheet.create({
+     header: 'Select image Source',
+     buttons: [
+       {
+         text: 'Select Camera',
+         handler: ()=>{
+           this.chooseFromCamera(this.camera.PictureSourceType.CAMERA);
+           console.log('Camera Selected');
+         }
+       },
+       {
+         text: 'Cancel',
+         role: 'cancel'
+       }
+     ]
+    });
+    await actionsheet.present();
   }
   emergency(){
     this.router.navigate([`/mapa`])
@@ -96,6 +155,7 @@ export class CreteEditPetComponent  implements OnInit {
       this.first=false
       this.second=true
     }else if(option=="info"){
+      this.selectimageOptions();
       this.send=true
     }else if(option=="optional"){
       this.third=false

@@ -28,4 +28,7 @@ export class ApiService {
     
     return this.http.get(this.url+'api/Pet/ByUser/'+id)
   }
+  getAdoptList(){
+    return this.http.get<any[]>(this.url+'api/AdopList')
+  }
 }
