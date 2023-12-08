@@ -43,6 +43,20 @@
             
           
         </div>
+        <ion-grid>
+          <ion-row>
+            <div *ngIf="url">
+              <img [src]="santizeUrl(url)" height="100" width="150"/>
+             </div>
+       <div *ngIf="imageurl">
+        <img [src]="santizeUrl(imageurl)" height="100" width="150"/>
+       </div>
+          </ion-row>
+          <ion-row>
+            <strong>Ready to create an app?</strong>
+            <p><ion-button (click)="selectimageOptions()">Select Image</ion-button></p>
+          </ion-row>
+        </ion-grid>
         <div style="width: 100%;display: flex; justify-content: center; align-items: center;">
           <div style="width: 85%;display: flex;">
             <div class="form-init">
