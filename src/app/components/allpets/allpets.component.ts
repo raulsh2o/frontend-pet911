@@ -46,7 +46,8 @@ export class AllpetsComponent implements OnInit {
           age: res[i].age,
           race: res[i].race,
           sex: res[i].sex,
-          allergies: res[i].allergies
+          allergies: res[i].allergies,
+          image: res[i].image
         }
         this.pets.push(pet);
       }
@@ -66,7 +67,8 @@ export class AllpetsComponent implements OnInit {
           age: res[i].age,
           race: res[i].race,
           sex: res[i].sex,
-          allergies: res[i].allergies
+          allergies: res[i].allergies,
+          image: res[i].image
         }
         this.pets.push(pet);
       }

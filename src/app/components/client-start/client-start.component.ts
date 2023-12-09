@@ -27,9 +27,28 @@ mesage:any
     private activatedRoute:ActivatedRoute
     ) { }
 
+    ionViewWillEnter() {
+      this.token= localStorage.getItem('token')
+      this.user = JSON.parse(this.token)
+      this.name=this.user.name;
+      this.service.getPetByUser(this.user.idUser).subscribe((res:any)=>{
+        for (var i=0; i<res.length; i++){
+          var pet = {
+            name: res[i].name,
+            age: res[i].age,
+            race: res[i].race,
+            sex: res[i].sex,
+            allergies: res[i].allergies,
+            image: res[i].image
+          }
+          this.pets.push(pet);
+        }
+      })
+    }
+
   ngOnInit() {
     
-    this.token= localStorage.getItem('token')
+/*     this.token= localStorage.getItem('token')
     this.user = JSON.parse(this.token)
     this.name=this.user.name;
     this.service.getPetByUser(this.user.idUser).subscribe((res:any)=>{
@@ -39,11 +58,16 @@ mesage:any
           age: res[i].age,
           race: res[i].race,
           sex: res[i].sex,
-          allergies: res[i].allergies
+          allergies: res[i].allergies,
+          image: res[i].image
         }
         this.pets.push(pet);
       }
-    })
+    }) */
+
+
+
+    
 /*     this.service.getServices().subscribe((res:any)=>{
       console.log(res[0])
     }) */

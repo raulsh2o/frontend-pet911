@@ -8,7 +8,8 @@
     <div class="div-list" *ngFor="let pet of pets">
       <div class="div-square">
         <div style="display: flex; align-items: center;">
-          <img src="../../../assets/pruebas/perroCeleste.png" alt="">
+        <!--   <img src="../../../assets/pruebas/perroCeleste.png" alt=""> -->
+        <img [src]=pet.image alt="">
           <div>
             <h4>{{pet.name}}</h4>
             <p>{{pet.race}} {{pet.age}}</p>
