@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-adopt-carrousel',
   templateUrl: './adopt-carrousel.component.html',
@@ -32,10 +33,29 @@ export class AdoptCarrouselComponent  implements OnInit {
     // Agrega aquí más imágenes según tus necesidades
   ]},
 ]
-  constructor(private router:Router) { }
+pets: any[] = [];
+  constructor(private router:Router, private service:ApiService) { }
   results=this.items
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.getAdoptList().subscribe((res:any)=>{
+      console.log(res[0])
+      this.pets = [];
+      for (var i=0; i<res.length; i++){
+        var pet = {
+          name: res[i].Name,
+          age: res[i].Age,
+          race: res[i].Race,
+          sex: res[i].Sex,
+          allergies: res[i].Allergies,
+          description: res[i].Notes,
+          image: res[i].Image
+        }
+        this.pets.push(pet);
+      }
+      console.log(this.pets)
+    })
+  }
   emergency(){
     this.router.navigate([`/mapa`])
   }

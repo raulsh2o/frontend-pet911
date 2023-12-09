@@ -25,13 +25,13 @@
     <div style="display: flex; width: 100%;margin-left: 27px;max-width: 350px; margin-top: 27px;">
       
       <div class="lista-imagenes">
-        <div *ngFor="let pet of results"  class="square-button">
+        <div *ngFor="let pet of pets"  class="square-button">
          <div>
           <div style="width: 302px; "> 
             <div >
               <div class="carousel">
                 <button class="arrow left" (click)="previousSlide(pet)">&#8249;</button>
-                <img class="slide" [src]="pet.images[pet.currentIndex]" alt="Slide Image">
+                <img class="slide" [src]=pet.image alt="Slide Image">
                 <button class="arrow right" (click)="nextSlide(pet)">&#8250;</button>
               </div>
             </div>
@@ -40,7 +40,8 @@
           <div (click)="info()"  class="card">
             <div>
               <h1>{{pet.name}}</h1>
-            <p>{{pet.type}} {{pet.age}}, {{pet.description}}</p>
+           <!--  <p>{{pet.type}} {{pet.age}}, {{pet.description}}</p> -->
+           <p>{{pet.age}}, {{pet.description}}</p>
             </div>
             <div class="square">
               <img style="width: 35px; height: 35px;" src="../../../assets/icon/petIcons/Heart.png" alt="">
