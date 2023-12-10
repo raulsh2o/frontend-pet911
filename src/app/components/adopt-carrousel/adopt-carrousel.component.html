@@ -25,7 +25,7 @@
     <div style="display: flex; width: 100%;margin-left: 27px;max-width: 350px; margin-top: 27px;">
       
       <div class="lista-imagenes">
-        <div *ngFor="let pet of pets"  class="square-button">
+        <div *ngFor="let pet of pets_filtered"  class="square-button">
          <div>
           <div style="width: 302px; "> 
             <div >
@@ -37,14 +37,14 @@
             </div>
           </div>
          </div>
-          <div (click)="info()"  class="card">
+          <div (click)="info(pet.name, pet.age, pet.sex, pet.race, pet.description)"  class="card">
             <div>
               <h1>{{pet.name}}</h1>
            <!--  <p>{{pet.type}} {{pet.age}}, {{pet.description}}</p> -->
-           <p>{{pet.age}}, {{pet.description}}</p>
+           <p>{{pet.age}}, {{pet.allergies}}</p>
             </div>
             <div class="square">
-              <img style="width: 35px; height: 35px;" src="../../../assets/icon/petIcons/Heart.png" alt="">
+              <img style=" width: 35px; height: 35px;" src="../../../assets/icon/petIcons/Heart.png" alt="">
             </div>
           </div>
         </div>

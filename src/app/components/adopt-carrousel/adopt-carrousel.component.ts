@@ -34,10 +34,11 @@ export class AdoptCarrouselComponent  implements OnInit {
   ]},
 ]
 pets: any[] = [];
+pets_filtered: any[] = [];
   constructor(private router:Router, private service:ApiService) { }
   results=this.items
-
-  ngOnInit() {
+ngOnInit() {}
+ionViewWillEnter() {
     this.service.getAdoptList().subscribe((res:any)=>{
       console.log(res[0])
       this.pets = [];
@@ -49,10 +50,12 @@ pets: any[] = [];
           sex: res[i].Sex,
           allergies: res[i].Allergies,
           description: res[i].Notes,
-          image: res[i].Image
+          image: res[i].Image,
+          type: res[i].Type
         }
         this.pets.push(pet);
       }
+      this.pets_filtered = this.pets;
       console.log(this.pets)
     })
   }
@@ -72,21 +75,21 @@ pets: any[] = [];
     pet.currentIndex = (pet.currentIndex - 1 + pet.images.length) % pet.images.length;
     console.log(pet.currentIndex)
   }
-  info(){
-    this.router.navigate([`/adopt-info`])
+  info(name: string, age: string, sex: string, race: string, description: string){
+    this.router.navigate([`/adopt-info`, { name: name, age: age, sex: sex, race: race, description: description}])
   }
  
   filter(type:any){
     if(type=='Gato'){
 
-      this.results = this.items.filter(pet=>pet.type=='Gato')
+      this.pets_filtered = this.pets.filter(pet=>pet.type=='Gato')
 
     }else if(type=='Perro'){
 
-      this.results = this.items.filter(pet=>pet.type== 'Perro')
+      this.pets_filtered = this.pets.filter(pet=>pet.type== 'Perro')
     }else{
       
-    this.results=this.items
+    this.pets_filtered=this.pets
     }
 
   }
