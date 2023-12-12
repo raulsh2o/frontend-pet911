@@ -66,9 +66,19 @@
           </div>
           <p *ngIf="!validName" style="color: red;font-size: 14px; margin-top: 0px; text-align: center; width: 90%;">Solo se aceptan letras</p> 
           <div *ngIf="validALL" class="form-field">
-            <select  (click)="validarSelect($event)"  (change)="validarSelect($event)" [(ngModel)]="genSelec">
-              <option *ngFor="let edad of opcionesGen" >{{ edad }}</option>
-            </select>
+<!--           <select  id="Genero" (click)="validarSelect($event)"  (change)="validarSelect($event)" [(ngModel)]="genSelec">
+            <option *ngFor="let genero of opcionesGen" >{{ genero }}</option>
+          </select> -->
+          <ion-item>
+            <ion-label class="label-genre">Género</ion-label>
+            <ion-select  [(ngModel)]="genSelec" (ionChange)="validarSelect($event)">
+              <ion-select-option *ngFor="let genero of opcionesGen" [value]="genero">{{ genero }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          
+
+          
+          
             
           </div>
           <p *ngIf="!validGen" style="color: red;font-size: 14px; margin-top: 0px; text-align: center; width: 90%;">Elija una opcion</p>

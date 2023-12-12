@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class RegisterPage implements OnInit {
   password: string = '';
   showPassword: boolean = false;
-
   confirmPassword: string = '';
   confirmShowPassword: boolean = false;
   email:string=''
@@ -37,7 +36,7 @@ export class RegisterPage implements OnInit {
   validGen=true
   fechaSeleccionada: string='2023-01-01';
   validALL=false
-  genSelec: string='';
+  genSelec: string='Genero';
   opcionesGen: string[] = ["Hombre","Mujer","Otro"];
   constructor(private service:AuthService,private router:Router) { }
 

@@ -103,7 +103,27 @@
       input::placeholder {
         color: #D0D0D0; /* Cambia el color a tu preferencia */
       }
+      ion-item{
+        border-radius: 10px;
+        --background: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        
+      }
+      .label-genre{
+        color:#D0D0D0;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'SF Pro';
+        margin-bottom: 0; 
+        
+      }
       select {
+        border-radius: 10px;
         background: white;
         position: absolute;
         top: 0;
@@ -113,13 +133,13 @@
         font-size: 16px;
         font-weight: 500;
         border: 1px solid #E8E8E8;
-        border-radius: 10px;
         outline: none;
         padding: 1rem;
         z-index: 1;
-        color: #8D8282;
+        //color: #8D8282;
+        color: #D0D0D0;
         font-family: 'SF Pro';
-        padding: 0px;
+        padding: 0px; 
           }
           input[type="date"]::-webkit-calendar-picker-indicator {
             filter: invert(1); /* Invierte el color del icono */
